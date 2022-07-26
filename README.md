@@ -1,1 +1,1 @@
-# rails_basics
+# TestGuru rails app
