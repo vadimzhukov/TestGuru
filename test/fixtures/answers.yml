@@ -2,10 +2,8 @@
 
 one:
   body: MyString
-  question_id: 1
   correct: false
 
 two:
   body: MyString
-  question_id: 1
   correct: false
