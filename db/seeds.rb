@@ -40,3 +40,12 @@ answers = Answer.create([
   {body: 'Промис', correct: 1, question_id: Question.find_by(body: 'Что возвращает функция async (JS)').id},
   {body: 'True/False', correct: 0, question_id: Question.find_by(body: 'Что возвращает функция async (JS)').id}
 ])
+
+tests_of_user = TestOfUser.create([
+  {user_id: 1, test_id: 1},
+  {user_id: 1, test_id: 2},
+  {user_id: 1, test_id: 3},
+  {user_id: 2, test_id: 1},
+  {user_id: 2, test_id: 2},
+  {user_id: 3, test_id: 1}
+])
