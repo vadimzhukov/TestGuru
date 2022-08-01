@@ -19,11 +19,11 @@ categories = Category.create([
 ])
 
 tests = Test.create([
-  {title: 'Data types', level: 0, category_id: Category.find_by(title: 'Ruby').id },
-  {title: 'Blocks', level: 1, category_id: Category.find_by(title: 'Ruby').id },
-  {title: 'Modules', level: 1, category_id: Category.find_by(title: 'Ruby').id },
-  {title: 'Migrations', level: 2, category_id: Category.find_by(title: 'Rails').id },
-  {title: 'async await', level: 2, category_id: Category.find_by(title: 'JS').id }
+  {title: 'Data types', level: 0, category_id: categories[0].id },
+  {title: 'Blocks', level: 1, category_id: categories[0].id },
+  {title: 'Modules', level: 1, category_id: categories[0].id },
+  {title: 'Migrations', level: 2, category_id: categories[1].id },
+  {title: 'async await', level: 2, category_id: categories[2].id }
 ])
 
 questions = Question.create([
@@ -42,10 +42,10 @@ answers = Answer.create([
 ])
 
 tests_of_user = TestOfUser.create([
-  {user_id: 1, test_id: 1},
-  {user_id: 1, test_id: 2},
-  {user_id: 1, test_id: 3},
-  {user_id: 2, test_id: 1},
-  {user_id: 2, test_id: 2},
-  {user_id: 3, test_id: 1}
+  {user_id: users[0].id, test_id: tests[0].id},
+  {user_id: users[0].id, test_id: tests[1].id},
+  {user_id: users[0].id, test_id: tests[2].id},
+  {user_id: users[1].id, test_id: tests[0].id},
+  {user_id: users[1].id, test_id: tests[1].id},
+  {user_id: users[2].id, test_id: tests[0].id}
 ])
