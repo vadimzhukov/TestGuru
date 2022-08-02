@@ -27,18 +27,18 @@ tests = Test.create([
 ])
 
 questions = Question.create([
-  {body: 'Какого типа данных нет в Ruby?', test_id: Test.find_by(title: 'Data types').id },
-  {body: 'Какой метод служит для создания внешнего ключа в миграциях Ruby?', test_id: Test.find_by(title: 'Migrations').id },
-  {body: 'Что возвращает функция async (JS)', test_id: Test.find_by(title: 'async await').id }
+  {body: 'Какого типа данных нет в Ruby?', test_id: tests[0].id },
+  {body: 'Какой метод служит для создания внешнего ключа в миграциях Ruby?', test_id: tests[3].id },
+  {body: 'Что возвращает функция async (JS)', test_id: tests[4].id }
 ])
 
 answers = Answer.create([
-  {body: 'Boolean', correct: 0, question_id: Question.find_by(body: 'Какого типа данных нет в Ruby?').id},
-  {body: 'varchar', correct: 1, question_id: Question.find_by(body: 'Какого типа данных нет в Ruby?').id},
-  {body: 'add_reference', correct: 1, question_id: Question.find_by(body: 'Какой метод служит для создания внешнего ключа в миграциях Ruby?').id},
-  {body: 'Boolean', correct: 0, question_id: Question.find_by(body: 'Какой метод служит для создания внешнего ключа в миграциях Ruby?').id},
-  {body: 'Промис', correct: 1, question_id: Question.find_by(body: 'Что возвращает функция async (JS)').id},
-  {body: 'True/False', correct: 0, question_id: Question.find_by(body: 'Что возвращает функция async (JS)').id}
+  {body: 'Boolean', correct: 0, question_id: questions[0].id},
+  {body: 'varchar', correct: 1, question_id: questions[0].id},
+  {body: 'add_reference', correct: 1, question_id: questions[1].id},
+  {body: 'Boolean', correct: 0, question_id: questions[1].id},
+  {body: 'Промис', correct: 1, question_id: questions[2].id},
+  {body: 'True/False', correct: 0, question_id: questions[2].id}
 ])
 
 tests_of_user = TestOfUser.create([
