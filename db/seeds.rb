@@ -5,3 +5,47 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+users = User.create([
+  {name: "Vadim"},
+  {name: "Andrey"},
+  {name: "Roman"}
+])
+
+categories = Category.create([
+  {title: 'Ruby'},
+  {title: 'Rails'},
+  {title: 'JS'}
+])
+
+tests = Test.create([
+  {title: 'Data types', level: 0, category_id: categories[0].id },
+  {title: 'Blocks', level: 1, category_id: categories[0].id },
+  {title: 'Modules', level: 1, category_id: categories[0].id },
+  {title: 'Migrations', level: 2, category_id: categories[1].id },
+  {title: 'async await', level: 2, category_id: categories[2].id }
+])
+
+questions = Question.create([
+  {body: 'Какого типа данных нет в Ruby?', test_id: tests[0].id },
+  {body: 'Какой метод служит для создания внешнего ключа в миграциях Ruby?', test_id: tests[3].id },
+  {body: 'Что возвращает функция async (JS)', test_id: tests[4].id }
+])
+
+answers = Answer.create([
+  {body: 'Boolean', correct: 0, question_id: questions[0].id},
+  {body: 'varchar', correct: 1, question_id: questions[0].id},
+  {body: 'add_reference', correct: 1, question_id: questions[1].id},
+  {body: 'Boolean', correct: 0, question_id: questions[1].id},
+  {body: 'Промис', correct: 1, question_id: questions[2].id},
+  {body: 'True/False', correct: 0, question_id: questions[2].id}
+])
+
+tests_of_user = TestOfUser.create([
+  {user_id: users[0].id, test_id: tests[0].id},
+  {user_id: users[0].id, test_id: tests[1].id},
+  {user_id: users[0].id, test_id: tests[2].id},
+  {user_id: users[1].id, test_id: tests[0].id},
+  {user_id: users[1].id, test_id: tests[1].id},
+  {user_id: users[2].id, test_id: tests[0].id}
+])
