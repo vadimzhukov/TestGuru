@@ -9,7 +9,8 @@
 users = User.create([
   {name: "Vadim"},
   {name: "Andrey"},
-  {name: "Roman"}
+  {name: "Roman"},
+  {name: "Steven King"}
 ])
 
 categories = Category.create([
@@ -19,11 +20,11 @@ categories = Category.create([
 ])
 
 tests = Test.create([
-  {title: 'Data types', level: 0, category_id: categories[0].id },
-  {title: 'Blocks', level: 1, category_id: categories[0].id },
-  {title: 'Modules', level: 1, category_id: categories[0].id },
-  {title: 'Migrations', level: 2, category_id: categories[1].id },
-  {title: 'async await', level: 2, category_id: categories[2].id }
+  {title: 'Data types', level: 0, category_id: categories[0].id, author_id: users[3].id},
+  {title: 'Blocks', level: 1, category_id: categories[0].id, author_id: users[3].id},
+  {title: 'Modules', level: 1, category_id: categories[0].id, author_id: users[3].id},
+  {title: 'Migrations', level: 2, category_id: categories[1].id, author_id: users[3].id},
+  {title: 'async await', level: 2, category_id: categories[2].id, author_id: users[3].id}
 ])
 
 questions = Question.create([
