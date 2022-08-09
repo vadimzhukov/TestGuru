@@ -7,16 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = User.create([
-  {name: "Vadim"},
-  {name: "Andrey"},
-  {name: "Roman"},
-  {name: "Steven King"}
+  {name: "Vadim", email: "vadim@mail.com"},
+  {name: "Andrey", email: "andrey@@mail.com"},
+  {name: "Roman", email: "roman@mail.com"},
+  {name: "Stephen King", email: "stephenking@mail.com"}
 ])
 
 categories = Category.create([
   {title: 'Ruby'},
   {title: 'Rails'},
-  {title: 'JS'}
+  {title: 'JS'},
+  {title: 'DevOps'}
 ])
 
 tests = Test.create([
@@ -24,7 +25,8 @@ tests = Test.create([
   {title: 'Blocks', level: 1, category_id: categories[0].id, author_id: users[3].id},
   {title: 'Modules', level: 1, category_id: categories[0].id, author_id: users[3].id},
   {title: 'Migrations', level: 2, category_id: categories[1].id, author_id: users[3].id},
-  {title: 'async await', level: 2, category_id: categories[2].id, author_id: users[3].id}
+  {title: 'async await', level: 2, category_id: categories[2].id, author_id: users[3].id},
+  {title: 'k8s HPA', level: 6, category_id: categories[3].id, author_id: users[3].id}
 ])
 
 questions = Question.create([
