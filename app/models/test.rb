@@ -19,7 +19,7 @@ class Test < ApplicationRecord
 
   scope :tests_by_level, -> (level) { where("tests.level" => level) }
 
-  def tests_by_category(cat_name)
+  def self.tests_by_category(cat_name)
     Test.by_category(cat_name).order(title: :desc).pluck("tests.title")
   end
 end
