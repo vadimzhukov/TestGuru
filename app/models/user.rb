@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_many :test_of_users
   has_many :tests, through: :test_of_users
 
+  validates :name, presence: true
+  validates :email, presence: true
+
   def tests_by_level(level)
     self.tests.where(level: level)
   end
