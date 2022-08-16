@@ -32,7 +32,8 @@ tests = Test.create([
 questions = Question.create([
   {body: 'Какого типа данных нет в Ruby?', test_id: tests[0].id },
   {body: 'Какой метод служит для создания внешнего ключа в миграциях Ruby?', test_id: tests[3].id },
-  {body: 'Что возвращает функция async (JS)', test_id: tests[4].id }
+  {body: 'Что возвращает функция async (JS)', test_id: tests[4].id },
+  {body: 'Что не является объектом в Ruby?', test_id: tests[0].id }
 ])
 
 answers = Answer.create([
@@ -41,7 +42,9 @@ answers = Answer.create([
   {body: 'add_reference', correct: 1, question_id: questions[1].id},
   {body: 'Boolean', correct: 0, question_id: questions[1].id},
   {body: 'Промис', correct: 1, question_id: questions[2].id},
-  {body: 'True/False', correct: 0, question_id: questions[2].id}
+  {body: 'True/False', correct: 0, question_id: questions[2].id},
+  {body: 'Классы', correct: 0, question_id: questions[3].id},
+  {body: 'Блоки', correct: 1, question_id: questions[3].id}
 ])
 
 tests_of_user = TestOfUser.create([
