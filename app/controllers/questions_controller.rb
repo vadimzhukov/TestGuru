@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
 
   before_action :find_test
+  before_action :find_question
   
   rescue_from ActiveRecord::RecordNotFound, with: :question_not_found
 
@@ -9,7 +10,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    render plain: Question.find(params[:id]).body
+    render plain: @question.body
   end
 
   def new
@@ -17,15 +18,19 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.create(question_parameters)
+    new_question = Question.new(question_parameters)
 
-    render plain: question.inspect
+    begin
+      new_question.save!
+      render plain: "Вопрос сохранен в БД: #{new_question.inspect}"
+    rescue => exception
+      render plain: "Вопрос не был сохранен в БД, ошибка: #{exception}"
+    end
+    
   end
 
   def destroy
-    @question = Question.find(params[:id])
     @question.destroy
-
     render plain: "Вопрос #{params[:id]} - #{@question.body} был удален из БД"
   end
 
@@ -33,7 +38,15 @@ class QuestionsController < ApplicationController
   private 
   
   def find_test
-    @test = Test.find(params[:test_id])
+    if params[:test_id]
+      @test = Test.find(params[:test_id])
+    end
+  end
+
+  def find_question
+    if params[:id]
+      @question = Question.find(params[:id])
+    end
   end
 
   def question_parameters
