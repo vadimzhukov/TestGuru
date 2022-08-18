@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
-  before_action :find_test
-  before_action :find_question
+  before_action :find_test, only: %i[index create]
+  before_action :find_question, only: %i[show create destroy]
   
   rescue_from ActiveRecord::RecordNotFound, with: :question_not_found
 
@@ -18,13 +18,12 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    new_question = Question.new(question_parameters)
+    new_question = @test.questions.build(question_parameters)
 
-    begin
-      new_question.save!
+    if new_question.save
       render plain: "Вопрос сохранен в БД: #{new_question.inspect}"
-    rescue => exception
-      render plain: "Вопрос не был сохранен в БД, ошибка: #{exception}"
+    else
+      render plain: "Вопрос не был сохранен в БД, при сохранении возникла ошибка"
     end
     
   end
@@ -38,19 +37,15 @@ class QuestionsController < ApplicationController
   private 
   
   def find_test
-    if params[:test_id]
       @test = Test.find(params[:test_id])
-    end
   end
 
   def find_question
-    if params[:id]
       @question = Question.find(params[:id])
-    end
   end
 
   def question_parameters
-    params.require(:question).permit(:body, :test_id)
+    params.require(:question).permit(:body)
   end
 
   def question_not_found
