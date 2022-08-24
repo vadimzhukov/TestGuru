@@ -1,13 +1,23 @@
-<%= form_with model: @test do |form| %>
+<%= form_with model: @test, local: true do |form| %>
+  <% if @test.errors.present? %>
+    <div>
+      <h2><%= pluralize(@test.errors.count, 'error') %> deteceted:</h2>
+      <ul>
+        <%= @test.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div>
     <%= form.label "Название теста:" %>
     <%= form.text_field :title %>
   </div>
   <div>
-    Категория теста:<%= form.collection_select :category_id, Category.order(:title), :id, :title %>
+    Категория теста:<%= form.collection_select :category_id, Category.order(:title), :id, :title, prompt: true %>
   </div>
   <div>
-    Автор теста: <%= form.collection_select :author_id, User.order(:name), :id, :name %>
+    Автор теста: <%= form.collection_select :author_id, User.order(:name), :id, :name, prompt: true %>
   </div>
-<%= form.submit  %>
+  <%= form.submit  %>
 <% end %>

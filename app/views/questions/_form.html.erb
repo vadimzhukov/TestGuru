@@ -1,4 +1,14 @@
-<%= form_with model: [@test, @question] do |form| %>
+<%= form_with model: [@test, @question], local: true do |form| %>
+  <% if @question.errors.present? %>
+    <div>
+      <h2><%= pluralize(@question.errors.count, 'error') %> deteceted:</h2>
+      <ul>
+        <%= @question.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div>
     <%= form.label "Текст вопроса:" %>
     <br>

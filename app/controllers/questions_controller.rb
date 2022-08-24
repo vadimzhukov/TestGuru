@@ -9,13 +9,13 @@ class QuestionsController < ApplicationController
   def show; end
 
   def new
-    @question = Question.new
+    @question = @test.questions.new
   end
 
   def create
-    new_question = @test.questions.build(question_parameters)
+    @question = @test.questions.new(question_params)
 
-    if new_question.save
+    if @question.save
       redirect_to test_questions_path(@test)
     else
       render :new
@@ -25,7 +25,7 @@ class QuestionsController < ApplicationController
   def edit; end
 
   def update
-    if @question.update(question_parameters)
+    if @question.update(question_params)
       redirect_to @question
     else
       render :edit
@@ -50,8 +50,8 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
-  def question_parameters
-    params.require(:question).permit(:body, :test_id)
+  def question_params
+    params.require(:question).permit(:body)
   end
 
   def question_not_found

@@ -1,10 +1,9 @@
 module QuestionsHelper
-  def question_header(action, test)
-    case action.to_sym
-    when :new
-      "Создайте новый вопрос для теста #{test.title}"
-    when :edit
-      "Отредактируйте вопрос для теста #{test.title}"
+  def question_header(question)
+    if question.persisted?
+      "Отредактируйте вопрос для теста #{question.test.title}"
+    else
+      "Создайте новый вопрос для теста #{question.test.title}"
     end
   end
 end
