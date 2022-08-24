@@ -1,32 +1,43 @@
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[index create]
-  before_action :find_question, only: %i[show destroy]
+  before_action :find_test, only: %i[index new create]
+  before_action :find_question, only: %i[show edit update destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :question_not_found
 
-  def index
-    render plain: @test.questions.pluck('id', 'body').join("\n")
-  end
+  def index; end
 
-  def show
-    render plain: @question.body
-  end
+  def show; end
 
-  def new; end
+  def new
+    @question = Question.new
+  end
 
   def create
     new_question = @test.questions.build(question_parameters)
 
     if new_question.save
-      render plain: "Вопрос сохранен в БД: #{new_question.inspect}"
+      redirect_to test_questions_path(@test)
     else
-      render plain: 'Вопрос не был сохранен в БД, при сохранении возникла ошибка'
+      render :new
+    end
+  end
+
+  def edit; end
+
+  def update
+    if @question.update(question_parameters)
+      redirect_to @question
+    else
+      render :edit
     end
   end
 
   def destroy
-    @question.destroy
-    render plain: "Вопрос #{params[:id]} - #{@question.body} был удален из БД"
+    if @question.destroy
+      redirect_to test_questions_path(@question.test)
+    else
+      render plain: "При удалении вопроса возникла ошибка"
+    end
   end
 
   private
@@ -40,7 +51,7 @@ class QuestionsController < ApplicationController
   end
 
   def question_parameters
-    params.require(:question).permit(:body)
+    params.require(:question).permit(:body, :test_id)
   end
 
   def question_not_found

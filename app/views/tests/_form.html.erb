@@ -1,0 +1,13 @@
+<%= form_with model: @test do |form| %>
+  <div>
+    <%= form.label "Название теста:" %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    Категория теста:<%= form.collection_select :category_id, Category.order(:title), :id, :title %>
+  </div>
+  <div>
+    Автор теста: <%= form.collection_select :author_id, User.order(:name), :id, :name %>
+  </div>
+<%= form.submit  %>
+<% end %>
