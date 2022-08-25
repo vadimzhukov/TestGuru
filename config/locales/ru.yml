@@ -1,2 +1,10 @@
 ru: 
   hello: "Привет, мир!"
+  title: "Заголовок"
+  activerecord:
+    errors:
+      models:
+        test:
+          attributes:
+            title: 
+              blank: "Поле заголовок не может быть пустым"

@@ -1,0 +1,5 @@
+<h2><%= question_header(@question) %></h2>
+
+<%= render 'form' %>
+
+<%= link_to "Вопросы теста", test_questions_path(@question.test) %>

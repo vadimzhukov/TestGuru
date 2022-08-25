@@ -1,0 +1,8 @@
+<h2> Вопрос # <%= @question.id %> теста <%= @question.test.title %> </h2>
+<p>
+  <strong>Текст вопроса:</strong>
+  <p><%= @question.body %></p>
+</p>
+
+<%= link_to "Редактировать", edit_question_path(@question) %> |
+<%= link_to "Вопросы теста", test_questions_path(@question.test) %>
