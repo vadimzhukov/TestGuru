@@ -46,12 +46,3 @@ answers = Answer.create([
   {body: 'Классы', correct: 0, question_id: questions[3].id},
   {body: 'Блоки', correct: 1, question_id: questions[3].id}
 ])
-
-tests_of_user = TestOfUser.create([
-  {user_id: users[0].id, test_id: tests[0].id},
-  {user_id: users[0].id, test_id: tests[1].id},
-  {user_id: users[0].id, test_id: tests[2].id},
-  {user_id: users[1].id, test_id: tests[0].id},
-  {user_id: users[1].id, test_id: tests[1].id},
-  {user_id: users[2].id, test_id: tests[0].id}
-])

@@ -11,7 +11,7 @@ class Answer < ApplicationRecord
   private 
   
   def max_answers
-    errors.add(:question) if question.answers.to_a.count >= 4
+    errors.add(:question) if question.answers.to_a.count > 4
   end
 
 end

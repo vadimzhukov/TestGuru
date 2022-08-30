@@ -1,0 +1,5 @@
+<h2> <%= answer_header(@answer) %> </h2>
+
+<%= render 'form', answer: @answer %>
+
+<%= link_to 'Назад', question_path(@answer.question) %>
