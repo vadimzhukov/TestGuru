@@ -4,6 +4,5 @@ class Question < ApplicationRecord
   has_many :answers, dependent: :destroy
 
   validates :body, presence: true
-  validates :test_id, uniqueness: {scope: :body, message: "Вопрос с таким текстом для данного теста уже существует"}
-
+  validates :test_id, uniqueness: { scope: :body, message: 'Вопрос с таким текстом для данного теста уже существует' }
 end

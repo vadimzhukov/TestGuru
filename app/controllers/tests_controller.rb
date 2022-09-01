@@ -1,5 +1,6 @@
 class TestsController < ApplicationController
-  before_action :find_test, only: %i[show edit update destroy]
+  before_action :set_test, only: %i[show edit update destroy start]
+  before_action :set_user, only: %i[start]
 
   def index
     @tests = Test.all
@@ -9,9 +10,7 @@ class TestsController < ApplicationController
     @test = Test.new
   end
 
-  def show
-    redirect_to test_questions_path(@test)
-  end
+  def show; end
 
   def create
     @test = Test.new(test_parameters)
@@ -27,23 +26,29 @@ class TestsController < ApplicationController
   def update
     if @test.update(test_parameters)
       redirect_to tests_path
+
     else
       render :edit
     end
+
+    def destroy
+      redirect_to tests_path if @test.destroy
+    end
   end
 
-  def destroy
-    if @test.destroy
-      redirect_to tests_path
-    else
-      render plain: "При удалении возникла ошибка"
-    end
+  def start
+    @user.tests.push(@test)
+    redirect_to @user.test_passage(@test)
   end
 
   private
 
-  def find_test
+  def set_test
     @test = Test.find(params[:id])
+  end
+
+  def set_user
+    @user = User.first
   end
 
   def test_parameters

@@ -4,8 +4,6 @@ class QuestionsController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :question_not_found
 
-  def index; end
-
   def show; end
 
   def new
@@ -16,7 +14,7 @@ class QuestionsController < ApplicationController
     @question = @test.questions.new(question_params)
 
     if @question.save
-      redirect_to test_questions_path(@test)
+      redirect_to test_path(@test)
     else
       render :new
     end
@@ -36,7 +34,7 @@ class QuestionsController < ApplicationController
     if @question.destroy
       redirect_to test_questions_path(@question.test)
     else
-      render plain: "При удалении вопроса возникла ошибка"
+      render plain: 'При удалении вопроса возникла ошибка'
     end
   end
 

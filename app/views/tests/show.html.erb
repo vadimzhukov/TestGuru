@@ -1,6 +1,5 @@
 <h1>Тест: <%= @test.title %></h1>
 <%= link_to "Редактировать тест", edit_test_path(@test) %>
-
 <h2>Вопросы:</h2>
 <table>
   <tr>
@@ -8,7 +7,7 @@
     <th>Текст вопроса</th>
     <th colspan="3">Действия</th>
   </tr>
-  <%= render partial: "question", collection: @test.questions %>
+  <%= render partial: "/questions/question", collection: @test.questions %>
 </table>
 <br>
 <%= link_to "Добавить вопрос", new_test_question_path(@test) %>
