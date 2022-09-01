@@ -1,7 +1,6 @@
 <h2>Вы проходите тест <%= @test_passage.test.title %></h2>
 <strong><%= @test_passage.current_question.body %></strong>
 <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
-  
   <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
     <p>
       <%= b.check_box id: "answer_ids_#{b.object.id}" %>
@@ -12,7 +11,6 @@
     <%= form.submit "Next" %>
   </p>
 <% end %>
-
 <p>
-Вопрос: <%= @test_passage.question_index %> / <%= @test_passage.test.questions.count %>
+  Вопрос: <%= @test_passage.question_index || "1"%> / <%= @test_passage.test.questions.count %>
 </p>

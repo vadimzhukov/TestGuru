@@ -13,9 +13,7 @@ class TestPassagesController < ApplicationController
     end
   end
 
-  def result
-    
-  end
+  def result; end
 
   private
 

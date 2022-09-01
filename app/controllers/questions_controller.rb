@@ -34,7 +34,7 @@ class QuestionsController < ApplicationController
     if @question.destroy
       redirect_to test_questions_path(@question.test)
     else
-      render plain: "При удалении вопроса возникла ошибка"
+      render plain: 'При удалении вопроса возникла ошибка'
     end
   end
 

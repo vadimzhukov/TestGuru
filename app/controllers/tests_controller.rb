@@ -43,7 +43,6 @@ class TestsController < ApplicationController
 
   private
 
-  render plain: 'При удалении возникла ошибка'
   def set_test
     @test = Test.find(params[:id])
   end
