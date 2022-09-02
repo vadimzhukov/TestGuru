@@ -47,6 +47,6 @@ class TestPassage < ApplicationRecord
   end
 
   def set_question_index
-    self.question_index = test.questions.order(:id).where('id <= ?', current_question.id).count
+    self.question_index = test.questions.order(:id).where('id <= ?', current_question.id).count if current_question
   end
 end
