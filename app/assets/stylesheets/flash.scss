@@ -1,0 +1,14 @@
+.flash {
+  size: 2rem;
+  border: 2px solid;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.flash.alert {
+  border-color: red;
+}
+
+.flash.notification {
+  border-color: green;
+}

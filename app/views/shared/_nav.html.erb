@@ -1,1 +1,10 @@
-<%= link_to "Все тесты", tests_path %>
+_
+<h1><%= link_to "TestGuru", root_path %></h1>
+<% if current_user %>
+  <div><b> Welocome, <%= current_user.name %> Guru </b>
+    | <%= link_to "Log out", session_path(session[:user_id]), method: :delete, data: {confirm: "Уверены, что хотите выйти?"}  %></div>
+<% elsif request.path == '/login' %>
+  <%= link_to "Sign up", signup_path%>
+<% else  %>
+  <%= link_to "Log in", login_path%>
+<% end %>
