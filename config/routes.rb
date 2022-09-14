@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   root 'tests#index'
 
+  get :signup, to: 'users#new'
+  get :login, to: 'sessions#new'
+
   resources :answers
+  resources :users, only: :create
+  resources :sessions, only: %i[create destroy]
 
   resources :tests do
     member do
