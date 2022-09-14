@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   helper_method :current_user
+  helper_method :logged_in?
 
   private
 
@@ -16,6 +17,10 @@ class ApplicationController < ActionController::Base
   end
 
   def save_initial_path
-    cookies[:initial_path] ||= request.path
+    cookies[:initial_path] ||= request.path unless logged_in?
+  end
+
+  def logged_in?
+    current_user.present?
   end
 end

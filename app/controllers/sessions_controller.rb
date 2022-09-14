@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to cookies[:initial_path]
+      redirect_to cookies[:initial_path] || root_path
       cookies[:initial_path] = nil
     else
       flash.now[:alert] = 'Log in не удался'

@@ -1,5 +1,5 @@
 module FlashHelper
   def flash_messages(messages)
-    messages.map { |_key, _value| content_tag(:p, _value.to_s, class: "flash #{_key}") }.join('').html_safe
+    messages.map { |key, value| content_tag(:p, value.to_s, class: "flash #{key}") }.join('').html_safe
   end
 end

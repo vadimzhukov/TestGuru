@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to cookies[:initial_path]
+      redirect_to cookies[:initial_path] || root_path
       cookies[:initial_path] = nil
     else
       flash.now[:alert] = 'Пользователь не создан, проверьте регистрационные данные'
