@@ -6,13 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-users = User.create([
-                      { name: 'Vadim', email: 'vadim@mail.com', password: '123', password_confirmation: '123' },
-                      { name: 'Andrey', email: 'andrey@@mail.com', password: '123', password_confirmation: '123' },
-                      { name: 'Roman', email: 'roman@mail.com', password: '123', password_confirmation: '123' },
-                      { name: 'Stephen King', email: 'stephenking@mail.com', password: '123',
-                        password_confirmation: '123' }
-                    ])
+# users = User.create([
+#                       { name: 'Vadim', email: 'vadim@mail.com', password: '123456', password_confirmation: '123456' },
+#                       { name: 'Andrey', email: 'andrey@@mail.com', password: '123456',
+#                         password_confirmation: '123456' },
+#                       { name: 'Roman', email: 'roman@mail.com', password: '123456', password_confirmation: '123456' },
+#                       { name: 'Stephen King', email: 'stephenking@mail.com', password: '123456',
+#                         password_confirmation: '123456' }
+#                     ])
+
+user = User.new(name: 'Vadim', email: 'vadim@mail.com', password: '123456', password_confirmation: '123456')
+
+user.skip_confirmation!
+user.save!
 
 categories = Category.create([
                                { title: 'Ruby' },
@@ -22,12 +28,12 @@ categories = Category.create([
                              ])
 
 tests = Test.create([
-                      { title: 'Data types', level: 0, category_id: categories[0].id, author_id: users[3].id },
-                      { title: 'Blocks', level: 1, category_id: categories[0].id, author_id: users[3].id },
-                      { title: 'Modules', level: 1, category_id: categories[0].id, author_id: users[3].id },
-                      { title: 'Migrations', level: 2, category_id: categories[1].id, author_id: users[3].id },
-                      { title: 'async await', level: 2, category_id: categories[2].id, author_id: users[3].id },
-                      { title: 'k8s HPA', level: 6, category_id: categories[3].id, author_id: users[3].id }
+                      { title: 'Data types', level: 0, category_id: categories[0].id, author_id: user.id },
+                      { title: 'Blocks', level: 1, category_id: categories[0].id, author_id: user.id },
+                      { title: 'Modules', level: 1, category_id: categories[0].id, author_id: user.id },
+                      { title: 'Migrations', level: 2, category_id: categories[1].id, author_id: user.id },
+                      { title: 'async await', level: 2, category_id: categories[2].id, author_id: user.id },
+                      { title: 'k8s HPA', level: 6, category_id: categories[3].id, author_id: user.id }
                     ])
 
 questions = Question.create([

@@ -1,10 +1,10 @@
 <%= image_tag("guru_squared.jpg", :alt => "guru_logo", size: "40x40") %>
 <h1><%= link_to "TestGuru", root_path %></h1>
-<% if current_user %>
+<% if user_signed_in? %>
   <div><b> Welocome, <%= current_user.name %> Guru </b>
-    | <%= link_to "Log out", session_path(session[:user_id]), method: :delete, data: {confirm: "Уверены, что хотите выйти?"}  %></div>
-<% elsif request.path == '/login' %>
-  <%= link_to "Sign up", signup_path%>
+    | <%= link_to "Log out", destroy_user_session_path, method: :delete, data: {confirm: "Уверены, что хотите выйти?"}  %></div>
+<% elsif request.path == '/users/login' %>
+  <%= link_to "Sign up", new_user_registration_path%>
 <% else  %>
-  <%= link_to "Log in", login_path%>
+  <%= link_to "Log in", new_user_session_path%>
 <% end %>

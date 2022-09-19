@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-  root 'tests#index'
+  root to: 'tests#index'
 
-  get :signup, to: 'users#new'
-  get :login, to: 'sessions#new'
+  devise_for :users, path: :users, path_names: { sign_in: :login, sign_out: :logout },
+                     controllers: { confirmations: 'users/confirmations' }
 
   resources :answers
-  resources :users, only: :create
-  resources :sessions, only: %i[create destroy]
 
   resources :tests do
     member do

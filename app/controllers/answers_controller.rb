@@ -1,7 +1,10 @@
 class AnswersController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :set_answer, only: %i[show edit update destroy]
   before_action :set_question, only: %i[new create]
 
+  add_flash_types :welocome
   # GET /answers/1 or /answers/1.json
   def show; end
 
