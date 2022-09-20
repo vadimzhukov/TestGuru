@@ -1,6 +1,6 @@
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < ApplicationController
   before_action :authenticate_user!
-  
+
   before_action :find_test, only: %i[index new create]
   before_action :find_question, only: %i[show edit update destroy]
 
@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
     @question = @test.questions.new(question_params)
 
     if @question.save
-      redirect_to test_path(@test)
+      redirect_to admin_test_path(@test)
     else
       render :new
     end

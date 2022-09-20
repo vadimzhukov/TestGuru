@@ -1,4 +1,4 @@
-class AnswersController < ApplicationController
+class Admin::AnswersController < ApplicationController
   before_action :authenticate_user!
 
   before_action :set_answer, only: %i[show edit update destroy]

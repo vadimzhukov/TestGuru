@@ -5,8 +5,9 @@
     <th>ID теста</th>
     <th>Название теста</th>
     <th>Количество вопросов в тесте</th>
-    <th>Действия</th>
+    <th colspan="5">Действия</th>
   </tr>
   <%= render @tests %>
 </table>
 <br>
+<%= link_to "Добавить тест", new_admin_test_path %>
