@@ -1,5 +1,5 @@
-class Admin::AnswersController < ApplicationController
-  before_action :authenticate_user!
+class Admin::AnswersController < Admin::BaseController
+ 
 
   before_action :set_answer, only: %i[show edit update destroy]
   before_action :set_question, only: %i[new create]
@@ -20,7 +20,7 @@ class Admin::AnswersController < ApplicationController
   def create
     @answer = @question.answers.new(answer_params)
     if @answer.save
-      redirect_to question_path(@question)
+      redirect_to admin_question_path(@question)
     else
       render :new
     end
@@ -29,7 +29,7 @@ class Admin::AnswersController < ApplicationController
   # PATCH/PUT /answers/1 or /answers/1.json
   def update
     if @answer.update(answer_params)
-      redirect_to question_path(@answer.question)
+      redirect_to admin_question_path(@answer.question)
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class Admin::AnswersController < ApplicationController
   def destroy
     @answer.destroy
 
-    redirect_to question_path(@answer.question)
+    redirect_to admin_question_path(@answer.question)
   end
 
   private

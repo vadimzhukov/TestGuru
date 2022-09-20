@@ -11,7 +11,7 @@
     <th>Правильный ответ</th>
     <th colspan="2">Действия</th>
   </tr>
-  <%= render partial: '/admin/answers/answer', collection: @question.answers %>
+  <%= render @question.answers, collection: @question.answers %>
 </table>
 <p>
   <%= link_to "Добавить ответ", new_admin_question_answer_path(@question) %>
