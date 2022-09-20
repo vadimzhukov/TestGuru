@@ -1,5 +1,5 @@
 <%= image_tag("guru_squared.jpg", :alt => "guru_logo", size: "40x40") %>
-<h1><%= link_to "TestGuru", root_path %></h1>
+<h1><%= link_to "TestGuru", root_header_helper(current_user) %></h1>
 <% if user_signed_in? %>
   <div><b> Welocome, <%= current_user.name %> Guru </b>
     | <%= link_to "Log out", destroy_user_session_path, method: :delete, data: {confirm: "Уверены, что хотите выйти?"}  %></div>

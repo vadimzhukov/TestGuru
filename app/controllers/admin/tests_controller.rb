@@ -1,5 +1,5 @@
 class Admin::TestsController < Admin::BaseController
-  before_action :set_test, only: %i[show edit update destroy start]
+  before_action :set_test, only: %i[show edit update destroy]
 
   def index
     @tests = Test.all
@@ -13,7 +13,9 @@ class Admin::TestsController < Admin::BaseController
 
   def create
     @test = Test.new(test_parameters)
+    @test.author_id = current_user.id
     if @test.save
+
       redirect_to admin_tests_path
     else
       render :new
@@ -35,11 +37,6 @@ class Admin::TestsController < Admin::BaseController
     redirect_to admin_tests_path if @test.destroy
   end
 
-  def start
-    current_user.tests.push(@test)
-    redirect_to current_user.test_passage(@test)
-  end
-
   private
 
   def set_test
@@ -47,6 +44,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_parameters
-    params.require(:test).permit(:title, :level, :author_id, :category_id).merge(author_id: current_user.id)
+    params.require(:test).permit(:title, :level, :author_id, :category_id)
   end
 end
