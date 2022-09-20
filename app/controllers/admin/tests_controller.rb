@@ -47,6 +47,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_parameters
-    params.require(:test).permit(:title, :level, :author_id, :category_id)
+    params.require(:test).permit(:title, :level, :author_id, :category_id).merge(author_id: current_user.id)
   end
 end

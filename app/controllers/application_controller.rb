@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(_resource)
     if current_user.is_a?(Admin)
+      flash[:welcome] = "Добро пожаловать, #{current_user.name} #{current_user.last_name}!"
       admin_tests_path
     else
       root_path

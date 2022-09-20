@@ -7,8 +7,5 @@
   <div>
     Категория теста:<%= form.collection_select :category_id, Category.order(:title), :id, :title, prompt: true %>
   </div>
-  <div>
-    Автор теста: <%= form.collection_select :author_id, User.order(:name), :id, :name, prompt: true %>
-  </div>
   <%= form.submit  %>
 <% end %>
