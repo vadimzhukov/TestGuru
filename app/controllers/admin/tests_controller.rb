@@ -12,8 +12,8 @@ class Admin::TestsController < Admin::BaseController
   def show; end
 
   def create
-    @test = Test.new(test_parameters)
-    @test.author_id = current_user.id
+    @test = current_user.creatives.new(test_parameters)
+
     if @test.save
 
       redirect_to admin_tests_path
@@ -44,6 +44,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_parameters
-    params.require(:test).permit(:title, :level, :author_id, :category_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 end
