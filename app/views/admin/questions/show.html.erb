@@ -1,0 +1,21 @@
+<h2> Вопрос # <%= @question.id %> теста <%= @question.test.title %> </h2>
+<p>
+  <strong>Текст вопроса:</strong>
+  <p><%= @question.body %></p>
+</p>
+<h2>Ответы:</h2>
+<table>
+  <tr>
+    <th>ID ответа</th>
+    <th>Текст ответа</th>
+    <th>Правильный ответ</th>
+    <th colspan="2">Действия</th>
+  </tr>
+  <%= render @question.answers, collection: @question.answers %>
+</table>
+<p>
+  <%= link_to "Добавить ответ", new_admin_question_answer_path(@question) %>
+</p>
+<br>
+<%= link_to "Редактировать", edit_admin_question_path(@question) %> |
+<%= link_to "Вопросы теста", admin_test_path(@question.test) %>
