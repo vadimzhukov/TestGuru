@@ -30,4 +30,126 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  tests:
+    index:
+      header: "Available tests"
+
+  helpers:
+    submit:
+      test:
+        create: "Create test"
+        update: "Update test"
+      question:
+        create: "Create question"
+        update: "Update question"
+      answer:
+        create: "Create answer"
+        update: "Update answer"
+
+    label:
+      test:
+        title: "Title"
+        category_id: "Category"
+      question:
+        body: "Question body:"
+      answer:
+        answer: "Answer body:"
+        right: "Right answer"
+
+    select:
+      prompt: "- Select -"
+
+    questions_helper:
+      edit_question: "Edit question for %{test_title} test"
+      add_question: "Create new question for %{test_title} test"
+    answers_helper:
+      edit_answer: "Edit answer for question %{question_body}"
+      add_answer: "Add answer for question %{question_body}"
+
+  admin:
+    tests:
+      test:
+        edit: "Edit"
+        add_question: "Add question"
+        show_questions: "Questions"
+        delete: "Delete"
+      index:
+        header: "Current tests"
+        test_id: "Test ID"
+        title: "Title"
+        questions_count: "Questions count"
+        actions: "Actions"
+        add_test: "Add test"
+      show:
+        header: "Test: %{title}"
+        edit: "Edit test"
+        questions: "Questions"
+        question_id: "Question ID"
+        question_body: "Question body"
+        actions: "Actions"
+        add_question: "Add question"
+      new:
+        header: "New test"
+      create:
+        success: "Test was successfuly created"
+      edit:
+          header: "Edit the %{title} test"
+          all_tests: "All tests"
+    questions:
+      question:
+        edit: "Edit"
+        delete: "Delete"
+      edit: 
+        questions: "Questions of the test"
+      new:
+        questions: "Questions of the test"
+      show:
+        header: "Question #%{id} of the %{test_title} test"
+        question_body: "Question body:"
+        answers: "Answers:"
+        answer_id: "Answer ID"
+        answer_body: "Answer body"
+        right_answer: "Right answer"
+        actions: "Actions"
+        add_answer: "Add answer"
+        edit: "Edit"
+        questions: "Questions of the test"
+    answers:
+      answer:
+        edit: "Редактировать"
+        delete: "Удалить"
+      edit:
+        back: "Back"
+      new:
+        back: "Back"
+      show:
+        back: "Back"
+  
+  tests:
+    index:
+      id: "Test ID"
+      title: "Title"
+      questions_count: "Questions count"
+      actions: "Actions"
+    test:
+      start: "Start"
+
+  test_passages:
+    show:
+      header: "You are passing the %{test_title} test"
+      question: "Question: "
+    result: 
+      header: "Result of passing the %{test_title} test" 
+      results: "Test completed %{res}"
+      successfully: "SUCCESSFULLY"
+      unsuccessfully: "UNSUCCESSFULLY"
+      right_count: "Right answers count:"
+
+  shared:
+    nav:
+      welcome: "Welcome, %{name} Guru"
+      log_out: "Log out"
+      sign_up: "Sign up"
+      log_in: "Log in"
+    footer:
+      description: "One can create tests with questions and answers. Users can pass tests answering questions."

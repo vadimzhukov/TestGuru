@@ -1,0 +1,17 @@
+en:
+  activerecord:
+    models:
+      test: "Test"
+
+    attributes:
+      test:
+        title: "Title"
+        level: "Level"
+        category: "Category"
+
+    errors:
+      messages:
+        required: "is required"
+        blank: "can't be blank"
+      
+  level_title_unique_error: "test with such title and level is already existed"

@@ -2,6 +2,6 @@
   <td><%= link_to answer.id, admin_answer_path(answer) %></td>
   <td><%= answer.body %></td>
   <td><%= answer.correct %></td>
-  <td><%= link_to 'edit', edit_admin_answer_path(answer) %></td>
-  <td><%= link_to "delete", admin_answer_path(answer), method: :delete, data: {confirm: "Уверены, что хотите удалить этот ответ?"} %></td>
+  <td><%= link_to t('.edit'), edit_admin_answer_path(answer) %></td>
+  <td><%= link_to t('.delete'), admin_answer_path(answer), method: :delete, data: {confirm: "Уверены, что хотите удалить этот ответ?"} %></td>
 </tr>

@@ -1,0 +1,17 @@
+ru:
+  activerecord:
+    models:
+      test: "Тест"
+
+    attributes:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category: "Категория"
+
+    errors:
+      messages:
+        required: "обязательно для заполнения"
+        blank: "не может быть пустным"
+  
+  level_title_unique_error: "тест с таким названием и уровнем сложности уже существует"
