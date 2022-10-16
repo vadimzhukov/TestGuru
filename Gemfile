@@ -26,6 +26,8 @@ gem 'devise', '~>4.0'
 
 gem 'net-smtp', require: false
 
+gem 'rails-i18n', '~>7.0.0'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

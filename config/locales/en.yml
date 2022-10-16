@@ -65,7 +65,7 @@ en:
     answers_helper:
       edit_answer: "Edit answer for question %{question_body}"
       add_answer: "Add answer for question %{question_body}"
-
+        
   admin:
     tests:
       test:
@@ -153,3 +153,7 @@ en:
       log_in: "Log in"
     footer:
       description: "One can create tests with questions and answers. Users can pass tests answering questions."
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
