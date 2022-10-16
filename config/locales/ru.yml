@@ -1,10 +1,129 @@
 ru: 
-  hello: "Привет, мир!"
-  title: "Заголовок"
-  activerecord:
+  tests:
+    index:
+      header: "Доступные тесты"
+  
+  helpers:
+    submit:
+      test:
+        create: "Создать тест"
+        update: "Обновить тест"
+      question:
+        create: "Создать вопрос"
+        update: "Обновить вопрос"
+      answer:
+        create: "Создать ответ"
+        update: "Обновить ответ"
+
+    label:
+      test:
+        title: "Название"
+        category_id: "Категория"
+      question:
+        body: "Текст вопроса:"
+      answer:
+        answer: "Текст ответа:"
+        right: "Правильно"
+    select:
+      prompt: "- Выберите -"
+      
+    questions_helper:
+      edit_question: "Отредактируйте вопрос для теста %{test_title}"
+      add_question: "Создайте новый вопрос для теста %{test_title}"
+    answers_helper:
+      edit_answer: "Отредактируйте ответ для вопроса %{question_body}"
+      add_answer: "Создайте новый ответ для вопроса %{question_body}"
+
+  admin:
+    tests:
+      test:
+        edit: "Редактировать"
+        add_question: "Добавить вопрос"
+        show_questions: "Вопросы теста"
+        delete: "Удалить"
+      index:
+        header: "Список тестов"
+        test_id: "ID теста"
+        title: "Название теста"
+        questions_count: "Количество вопросов"
+        actions: "Действия"
+        add_test: "Добавить тест"
+      show:
+        header: "Тест: %{title}"
+        edit: "Редактировать тест"
+        questions: "Вопросы"
+        question_id: "ID вопроса"
+        question_body: "Вопрос"
+        actions: "Действия"
+        add_question: "Добавить вопрос"
+      new:
+        header: "Новый тест"
+      create:
+        success: "Тест был успешно создан"
+      edit:
+        header: "Отредактируйте тест %{title}"
+        all_tests: "Все тесты"
+    questions:
+      question:
+        edit: "Редактировать"
+        delete: "Удалить"
+      edit: 
+        questions: "Вопросы теста"
+      new:
+        questions: "Вопросы теста"
+      show:
+        header: "Вопрос #%{id} теста %{test_title}" 
+        question_body: "Текст вопроса:"
+        answers: "Ответы:"
+        answer_id: "ID ответа"
+        answer_body: "Текст ответа"
+        right_answer: "Правильный ответ"
+        actions: "Действия"
+        add_answer: "Добавить ответ"
+        edit: "Редактировать"
+        questions: "Вопросы теста"
+    answers:
+      answer:
+        edit: "Редактировать"
+        delete: "Удалить"
+      edit:
+        back: "Назад"
+      new:
+        back: "Назад"
+      show:
+        back: "Назад"
+
+  tests:
+    index:
+      id: "ID теста"
+      title: "Название теста"
+      questions_count: "Количество вопросов"
+      actions: "Действия"
+    test:
+      start: "Начать"
+
+  test_passages:
+    show:
+      header: "Вы проходите тест %{test_title}"
+      question: "Вопрос: "
+    result: 
+      header: "Результат прохождения теста %{test_title}" 
+      results: "Тест пройден %{res}"
+      successfully: "УСПЕШНО"
+      unsuccessfully: "НЕУСПЕШНО"
+      right_count: "Вопросов с правильными ответами:"
+
+  shared:
+    nav:
+      welcome: "Добро пожаловать, Гуру %{name}"
+      log_out: "Выйти"
+      sign_up: "Зарегистрироваться"
+      log_in: "Войти"
+    footer:
+      description: "Можно создавать тесты с перечнем вопросов и варианами ответов, можно проходить тесты, отвечая на вопросы."
     errors:
-      models:
-        test:
-          attributes:
-            title: 
-              blank: "Поле заголовок не может быть пустым"
+      header:
+        one: "Обнаружена %{count} ошибка"
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        other: "Обнаружено %{count} ошибок"
