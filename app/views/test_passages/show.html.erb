@@ -1,16 +1,20 @@
-<h2><%= t('.header', test_title: @test_passage.test.title) %></h2>
-<strong><%= @test_passage.current_question.body %></strong>
-<%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
-  <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
+<div class="row justify-content-center ">
+  <div class="col col-md-6 py-5">
+    <h4><%= t('.header', test_title: @test_passage.test.title) %></h4>
+    <h3><%= @test_passage.current_question.body %></h3>
+    <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+      <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
+        <div class="form-check ">
+          <%= b.check_box id: "answer_ids_#{b.object.id}", class: "form-check-input"%>
+          <%= b.label id: "#{b.object.body}", class: "form-check-label"%>
+        </div>
+      <% end %>
+      <p>
+        <%= form.submit t('.submit'), class: "btn btn-primary" %>
+      </p>
+    <% end %>
     <p>
-      <%= b.check_box id: "answer_ids_#{b.object.id}" %>
-      <%= b.label %>
+      <%= t('.question') %> <%= @test_passage.question_index || "1"%> / <%= @test_passage.test.questions.count %>
     </p>
-  <% end %>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
-<p>
-  <%= t('.question') %> <%= @test_passage.question_index || "1"%> / <%= @test_passage.test.questions.count %>
-</p>
+  </div>
+</div>

@@ -1,3 +1,7 @@
 <p id="notice"><%= notice %></p>
+<h2><%= @answer.question.body %></h2>
+<strong><%= t('.answer_body_title')%>:</strong>  
+<h3><%= @answer.body %></h3>
+<p><%=t('.answer_is_right')%>: <%= @answer.correct%></p>
 <%= link_to 'Редактировать', edit_admin_answer_path(@answer) %> |
 <%= link_to t('.back'), admin_question_path(@answer.question) %>

@@ -1,7 +1,24 @@
 ru: 
+  devise:
+    sessions:
+      new:
+        header: "Войти"
+        remember: "Запомнить меня"
+        enter: "Войти"
+
+    registrations:
+      new:
+        header: "Зарегистрироваться"
+
   tests:
     index:
       header: "Доступные тесты"
+      id: "ID теста"
+      title: "Название теста"
+      questions_count: "Количество вопросов"
+      actions: "Действия"
+    test:
+      start: "Начать"
   
   helpers:
     submit:
@@ -64,6 +81,8 @@ ru:
         header: "Отредактируйте тест %{title}"
         all_tests: "Все тесты"
     questions:
+      form: 
+        submit: "Сохранить"
       question:
         edit: "Редактировать"
         delete: "Удалить"
@@ -83,6 +102,9 @@ ru:
         edit: "Редактировать"
         questions: "Вопросы теста"
     answers:
+      form: 
+        submit: "Сохранить"
+        right: "Правильный ответ"
       answer:
         edit: "Редактировать"
         delete: "Удалить"
@@ -91,21 +113,15 @@ ru:
       new:
         back: "Назад"
       show:
+        answer_body_title: "Текст ответа"
+        answer_is_right: "Правильно"
         back: "Назад"
-
-  tests:
-    index:
-      id: "ID теста"
-      title: "Название теста"
-      questions_count: "Количество вопросов"
-      actions: "Действия"
-    test:
-      start: "Начать"
 
   test_passages:
     show:
       header: "Вы проходите тест %{test_title}"
       question: "Вопрос: "
+      submit: "Зафиксировать ответ"
     result: 
       header: "Результат прохождения теста %{test_title}" 
       results: "Тест пройден %{res}"
@@ -119,6 +135,8 @@ ru:
       log_out: "Выйти"
       sign_up: "Зарегистрироваться"
       log_in: "Войти"
+      logout_confirmation: "Уверены, что хотите выйти?"
+      RU: "RU"
     footer:
       description: "Можно создавать тесты с перечнем вопросов и варианами ответов, можно проходить тесты, отвечая на вопросы."
     errors:

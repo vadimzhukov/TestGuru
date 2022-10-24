@@ -1,12 +1,21 @@
-<h1><%= t('.header')%></h1>
-<br>
-<table>
-  <tr>
-    <th><%= t('.id') %></th>
-    <th><%= t('.title') %></th>
-    <th><%= t('.questions_count') %></th>
-    <th><%= t('.actions') %></th>
-  </tr>
-  <%= render @tests %>
-</table>
-<br>
+<div class="container">
+  <div class="row">
+    <div class="col text-center my-3">
+      <h1><%= t('.header')%></h1>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <table class="table " >
+      <tr class="table-active ">
+        <th><%= t('.id') %></th>
+        <th><%= t('.title') %></th>
+        <th><%= t('.questions_count') %></th>
+        <th class="text-center "><%= t('.actions') %></th>
+      </tr>
+      <%= render @tests %>
+    </table>
+  </div>
+</div>
+</div>

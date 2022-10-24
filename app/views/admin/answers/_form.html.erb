@@ -1,12 +1,22 @@
-<%= form_with model: [:admin, @question, @answer], local: true do |form| %>
-  <%= render 'shared/errors', resource: @answer %>
-  <div>
-    <%= form.label :answer %>
-    <br>
-    <%= form.text_area :body, id: :answer_body, size: "120x5" %>
-    <br>
-    <%= form.label :right %>
-    <%= form.check_box :correct, id: :answer_correct %>
+<div class="container">
+  <div class="row">
+    <div class="col col-md-6">
+      <%= form_with model: [:admin, @question, @answer], local: true do |form| %>
+        <%= render 'shared/errors', resource: @answer %>
+        <div class="form-group">
+          <p>
+            <%= form.label :answer %>
+            <%= form.text_area :body, id: :answer_body, size: "160x5", class: "form-control" %>
+          </p>
+          <div class="form-check">
+            <%= form.label :right, class: "form-check-label" do%>
+              <%= form.check_box :correct, id: :answer_correct, class: "form-check-input" %>
+              <%= t('.right') %>
+            <% end %>
+          </div>
+        </div>
+        <%= form.submit t('.submit'), class: "btn btn-primary"  %>
+      <% end %>
+    </div>
   </div>
-  <%= form.submit  %>
-<% end %>
+</div>

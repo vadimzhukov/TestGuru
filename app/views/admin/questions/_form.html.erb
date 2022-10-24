@@ -1,9 +1,16 @@
-<%= form_with model: [:admin, @test, @question], local: true do |form| %>
-  <%= render 'shared/errors', resource: @question %>
-  <div>
-    <%= form.label :body %>
-    <br>
-    <%= form.text_area :body, id: :question_body, size: "120x5" %>
+<div class="container">
+  <div class="row">
+    <div class="col col-md-8">
+      <%= form_with model: [:admin, @test, @question], local: true do |form| %>
+        <%= render 'shared/errors', resource: @question %>
+        <div class="form-group">
+          <p>
+            <%= form.label :body %>
+            <%= form.text_area :body, id: :question_body, size: "120x5", class: "form-control" %>
+          </p>
+          <%= form.submit t(".submit"), class: "btn btn-primary"%>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <%= form.submit %>
-<% end %>
+</div>
