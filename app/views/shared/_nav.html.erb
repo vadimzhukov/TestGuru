@@ -1,10 +1,20 @@
-<%= image_tag("guru_squared.jpg", :alt => "guru_logo", size: "40x40") %>
-<h1><%= link_to "TestGuru", root_header_helper(current_user) %></h1>
-<% if user_signed_in? %>
-  <div><b> <%= t('.welcome', name: current_user.name) %> </b>
-    | <%= link_to t(".log_out"), destroy_user_session_path, method: :delete, data: {confirm: "Уверены, что хотите выйти?"}  %></div>
-<% elsif request.path == '/users/login' %>
-  <%= link_to t(".sign_up"), new_user_registration_path%>
-<% else  %>
-  <%= link_to t(".log_in"), new_user_session_path%>
-<% end %>
+<nav class='navbar bg-light px-3' >
+  <%= image_tag("guru_squared.jpg", :alt => "guru_logo", size: "60x60") %>
+  <%= link_to "TestGuru", root_path, class: "navbar navbar-brand " %>
+  <% if current_user&.admin? %>
+    <div class="navbar-text">
+      <%= link_to t(".edit_tests"), admin_tests_path %>
+    </div>
+  <%end%>
+  <div class="navbar-text">
+    <%= link_to t(".RU"), {:lang => :ru} %> | 
+    <%= link_to t(".EN"), {:lang => :en}%> | 
+    <% if user_signed_in? %>
+      <%= t('.welcome', name: current_user.name) %> |
+      <%= link_to t(".log_out"), destroy_user_session_path, method: :delete, data: {confirm: t('.logout_confirmation')} %>
+    <% elsif request.path == '/users/login' %>
+      <%= link_to t(".sign_up"), new_user_registration_path%>
+    <% else  %>
+      <%= link_to t(".log_in"), new_user_session_path%>
+    <% end %>
+  </nav>

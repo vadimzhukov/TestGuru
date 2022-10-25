@@ -30,9 +30,26 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  devise:
+    sessions:
+      new:
+        header: "Log in"
+        remember: "Remember me"
+        enter: "Log in"
+
+    registrations:
+      new:
+        header: "Sign up"
+
   tests:
     index:
       header: "Available tests"
+      id: "Test ID"
+      title: "Title"
+      questions_count: "Questions count"
+      actions: "Actions"
+    test:
+      start: "Start"
 
   helpers:
     submit:
@@ -96,6 +113,8 @@ en:
           header: "Edit the %{title} test"
           all_tests: "All tests"
     questions:
+      form: 
+        submit: "Submit"
       question:
         edit: "Edit"
         delete: "Delete"
@@ -115,6 +134,9 @@ en:
         edit: "Edit"
         questions: "Questions of the test"
     answers:
+      form: 
+        submit: "Submit"
+        right: "Right answer"
       answer:
         edit: "Редактировать"
         delete: "Удалить"
@@ -123,21 +145,15 @@ en:
       new:
         back: "Back"
       show:
+        answer_body_title: "Answer body"
+        answer_is_right: "Is right"
         back: "Back"
-  
-  tests:
-    index:
-      id: "Test ID"
-      title: "Title"
-      questions_count: "Questions count"
-      actions: "Actions"
-    test:
-      start: "Start"
 
   test_passages:
     show:
       header: "You are passing the %{test_title} test"
       question: "Question: "
+      submit: "Submit answer"
     result: 
       header: "Result of passing the %{test_title} test" 
       results: "Test completed %{res}"
@@ -151,8 +167,10 @@ en:
       log_out: "Log out"
       sign_up: "Sign up"
       log_in: "Log in"
+      logout_confirmation: "Are you sure you want to log out?"
+      EN: "EN"
     footer:
-      description: "One can create tests with questions and answers. Users can pass tests answering questions."
+      description: "Admin can create tests with questions and answers. Users can pass tests answering questions."
     errors:
       header:
         one: "%{count} error detected"

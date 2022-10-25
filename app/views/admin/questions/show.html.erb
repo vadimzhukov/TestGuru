@@ -4,12 +4,12 @@
   <p><%= @question.body %></p>
 </p>
 <h2><%= t('.answers') %></h2>
-<table>
-  <tr>
+<table class="table " >
+  <tr class="table-active ">
     <th><%= t('.answer_id') %></th>
     <th><%= t('.answer_body') %></th>
     <th><%= t('.right_answer') %></th>
-    <th colspan="2"><%= t('.actions') %></th>
+    <th colspan="2" class="text-center "><%= t('.actions') %></th>
   </tr>
   <%= render @question.answers, collection: @question.answers %>
 </table>

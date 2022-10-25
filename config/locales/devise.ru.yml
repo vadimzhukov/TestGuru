@@ -3,6 +3,12 @@
 
 ru:
   devise:
+    shared:
+      links:
+        forgot_password: "Забыли ваш пароль?"
+        confirmation_instructions: "Не получили инструкции по подтверждению регистрации?"
+        unlock_instructions: "Не получили инструкции по разблокировке?"
+        omni_signin: "Войдите с помощью "
     confirmations:
       confirmed: "Ваша учётная запись подтверждена."
       send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по подтверждению вашей учётной записи."

@@ -1,6 +1,6 @@
 <tr>
   <td><%= test.id %></td>
   <td><%= test.title %></td>
-  <td><%= test.questions.count %></td>
-  <td><%= button_to t('.start'), start_test_path(test) %></td>
+  <td ><%= test.questions.count %></td>
+  <td class="text-center "><%= button_to t('.start'), start_test_path(test), class: %w[btn btn-outline-primary btn-sm]%></td>
 </tr>

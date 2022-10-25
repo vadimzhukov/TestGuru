@@ -1,6 +1,10 @@
-<p>
-  <%= current_year %>, Vadim Zhukov<br>
-  <%= github_link("vadimzhukov", "TestGuru") %> -
-  <%= t('.description') %> <br>
-  <%= link_to "Thinknetica", "https://thinknetica.com", target: "_blank" %>
-</p>
+<footer class="container py-3 my-4">
+  <ul class="nav justify-content-start border-top pt-3 mt-3" >
+    <li class="nav-item"><%= current_year %> | Vadim Zhukov | &nbsp;</li>
+    <li class="nav-item"><%= github_link("vadimzhukov", "TestGuru") %></li>
+  </ul>
+  <ul class="nav justify-content-between">
+    <li class="nav-item"> <%= t('.description') %></li>
+    <li class="nav-item"><%= link_to "Thinknetica", "https://thinknetica.com", target: "_blank" %></li>
+  </ul>
+</footer>

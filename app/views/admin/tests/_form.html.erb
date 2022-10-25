@@ -1,12 +1,20 @@
-<%= form_with model: [:admin, @test], local: true do |form| %>
-  <%= render 'shared/errors', resource: @test %>
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+<div class="container">
+  <div class="row">
+    <div class="col col-md-8">
+      <%= form_with model: [:admin, @test], local: true do |form| %>
+        <%= render 'shared/errors', resource: @test %>
+        <div class="form-group">
+          <p>
+            <%= form.label :title %>
+            <%= form.text_field :title, class: "form-control"  %>
+          </p>
+          <p>
+            <%= form.label :category_id %>
+            <%= form.collection_select :category_id, Category.order(:title), :id, :title, prompt: true, class: "form-control dropdown-menu" %>
+          </p>
+          <%= form.submit t(".submit"), class: "btn btn-primary"  %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div>
-    <%= form.label :category_id %>
-    <%= form.collection_select :category_id, Category.order(:title), :id, :title, prompt: true %>
-  </div>
-  <%= form.submit  %>
-<% end %>
+</div>
