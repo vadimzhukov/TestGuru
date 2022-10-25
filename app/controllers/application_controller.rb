@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(_resource)
     if resource.admin?
-      flash[:success] = t('.hello', name: current_user.name, surname: current_user.last_name)
+      flash[:welcome] = t('.hello', name: current_user.name, surname: current_user.last_name)
       admin_tests_path
     else
       root_path
