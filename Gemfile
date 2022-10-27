@@ -22,14 +22,26 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# AUTHENTICATION
+
 gem 'devise', '~>4.0'
+
+# DISABLE SMTP for DEVISE in DEVELOPMENT MODE
 
 gem 'net-smtp', require: false
 
+# LOCALIZATION
+
 gem 'rails-i18n', '~>7.0.0'
+
+# BOOTSTRAP
 
 gem 'bootstrap', '~>4.0.0'
 gem 'jquery-rails'
+
+# HTTP CLIENT FOR API
+
+gem 'faraday'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

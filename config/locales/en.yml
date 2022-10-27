@@ -97,6 +97,8 @@ en:
         questions_count: "Questions count"
         actions: "Actions"
         add_test: "Add test"
+      form:
+        submit: "Create new test"
       show:
         header: "Test: %{title}"
         edit: "Edit test"

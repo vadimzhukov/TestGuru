@@ -80,6 +80,8 @@ ru:
       edit:
         header: "Отредактируйте тест %{title}"
         all_tests: "Все тесты"
+      form:
+        submit: "Создать тест"
     questions:
       form: 
         submit: "Сохранить"
@@ -145,3 +147,4 @@ ru:
         few: "Обнаружено %{count} ошибки"
         many: "Обнаружено %{count} ошибок"
         other: "Обнаружено %{count} ошибок"
+        
