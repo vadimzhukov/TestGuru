@@ -21,10 +21,15 @@ class TestPassagesController < ApplicationController
     result = GistQuestionService.new(@test_passage.current_question).call
 
     link = helpers.link_to 'gist', result[:html_url], target: '_blank'
-    flash_options = if result.id
+    gist_url = result[:html_url]
+
+    @gist = @test_passage.gists.new({ url: gist_url, gist_hash: result[:id],
+                                      question: @test_passage.current_question })
+
+    flash_options = if @gist.save
                       { notice: "The #{link} was successfuly created" }
                     else
-                      { alert: "Gist was not created, the reason is: #{result.errors}" }
+                      { alert: 'Gist was not created' }
                     end
 
     redirect_to @test_passage, flash_options
@@ -34,9 +39,5 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
-  end
-
-  def gist_link(result)
-    link_to 'created gist', result[:html_url]
   end
 end

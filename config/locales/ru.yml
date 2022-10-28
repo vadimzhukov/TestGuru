@@ -118,7 +118,12 @@ ru:
         answer_body_title: "Текст ответа"
         answer_is_right: "Правильно"
         back: "Назад"
-
+    gists:
+      index:
+        question: "Вопрос gist'a"
+        url: "Ссылка на gist"
+        user_email: "Email создателя"
+        
   test_passages:
     gist_description: "Вопрос теста %{test_title}"
     show:

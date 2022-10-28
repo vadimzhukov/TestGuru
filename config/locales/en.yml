@@ -150,7 +150,11 @@ en:
         answer_body_title: "Answer body"
         answer_is_right: "Is right"
         back: "Back"
-
+    gists:
+      index:
+        question: "Question of gist"
+        url: "Gist URL"
+        user_email: "Email of gist creator"
   test_passages:
     gist_description: "Question of the %{test_title} test"
     show:
