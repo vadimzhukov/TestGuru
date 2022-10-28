@@ -152,6 +152,7 @@ en:
         back: "Back"
 
   test_passages:
+    gist_description: "Question of the %{test_title} test"
     show:
       header: "You are passing the %{test_title} test"
       question: "Question: "
@@ -177,3 +178,5 @@ en:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
+
+  
