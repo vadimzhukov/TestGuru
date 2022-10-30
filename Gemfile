@@ -41,9 +41,10 @@ gem 'jquery-rails'
 
 # HTTP CLIENT FOR API
 
-gem 'faraday'
-
 gem 'octokit', '~> 5.0'
+
+# ENV varialbles
+gem 'dotenv-rails', groups: %i[development test]
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
