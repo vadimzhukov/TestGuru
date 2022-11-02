@@ -15,12 +15,8 @@ class GistQuestionService
 
     gist = @test_passage.gists.new({ url: result.url, gist_hash: result.id,
                                      question: @question })
-  if gist.save
-    result
-  else
-    nil
+    result if gist.save
   end
-  
 
   private
 
