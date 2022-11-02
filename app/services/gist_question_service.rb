@@ -1,15 +1,34 @@
+require 'octokit'
+
 class GistQuestionService
-  def initialize(question, client: nil)
-    @question = question
+  include ActionView::Helpers::UrlHelper
+
+  def initialize(test_passage, client = default_client)
+    @test_passage = test_passage
+    @question = test_passage.current_question
     @test = @question.test
-    @client = client || GitHubClient.new
+    @client = client
   end
 
-  def call
-    @client.create_gist(gist_params)
+  def save
+    result = create_structured_gist
+    @gist = @test_passage.gists.new({ url: result.html_url, gist_hash: result.id,
+                                      question: @question })
+    @gist.save
+    @gist
   end
 
   private
+
+  def default_client
+    Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
+  end
+
+  def create_structured_gist
+    Struct.new('StructuredGist', :id, :html_url)
+    gist = @client.create_gist(gist_params)
+    Struct::StructuredGist.new(gist[:id], gist[:html_url])
+  end
 
   def gist_params
     gist_description = I18n.t('test_passages.gist_description', test_title: @test.title)
