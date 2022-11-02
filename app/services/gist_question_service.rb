@@ -27,7 +27,7 @@ class GistQuestionService
   def create_structured_gist
     Struct.new('StructuredGist', :id, :url, :success?)
     gist = @client.create_gist(gist_params)
-    response_status_success = (@client.last_response.status.to_s =~ /^20\d$/)
+    response_status_success = @client.last_response.status.to_s.match(/^20\d$/)
 
     Struct::StructuredGist.new(gist[:id], gist[:html_url], response_status_success)
   end
