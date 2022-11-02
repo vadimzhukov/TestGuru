@@ -10,13 +10,17 @@ class GistQuestionService
     @client = client
   end
 
-  def save
+  def call
     result = create_structured_gist
-    @gist = @test_passage.gists.new({ url: result.html_url, gist_hash: result.id,
-                                      question: @question })
-    @gist.save
-    @gist
+
+    gist = @test_passage.gists.new({ url: result.url, gist_hash: result.id,
+                                     question: @question })
+  if gist.save
+    result
+  else
+    nil
   end
+  
 
   private
 
@@ -25,9 +29,11 @@ class GistQuestionService
   end
 
   def create_structured_gist
-    Struct.new('StructuredGist', :id, :html_url)
+    Struct.new('StructuredGist', :id, :url, :success?)
     gist = @client.create_gist(gist_params)
-    Struct::StructuredGist.new(gist[:id], gist[:html_url])
+    response_status_success = (@client.last_response.status.to_s =~ /^20\d$/)
+
+    Struct::StructuredGist.new(gist[:id], gist[:html_url], response_status_success)
   end
 
   def gist_params

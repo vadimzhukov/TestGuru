@@ -6,13 +6,16 @@ class Admin::GistsController < Admin::BaseController
   end
 
   def create
-    new_gist = GistQuestionService.new(@test_passage)
-    gist = new_gist.save
-    if gist.persisted?
+    gist = GistQuestionService.new(@test_passage).call
+
+    if gist.success?
       link = helpers.link_to 'gist', gist.url, target: '_blank'
       flash_options = { notice: "The #{link} was successfuly created" }
-      redirect_to test_passage_path(@test_passage), flash_options
+
+    else
+      flash_options = { alert: 'Gist was not created, try again later.' }
     end
+    redirect_to test_passage_path(@test_passage), flash_options
   end
 
   private
