@@ -97,6 +97,8 @@ en:
         questions_count: "Questions count"
         actions: "Actions"
         add_test: "Add test"
+      form:
+        submit: "Create new test"
       show:
         header: "Test: %{title}"
         edit: "Edit test"
@@ -148,8 +150,13 @@ en:
         answer_body_title: "Answer body"
         answer_is_right: "Is right"
         back: "Back"
-
+    gists:
+      index:
+        question: "Question of gist"
+        url: "Gist URL"
+        user_email: "Email of gist creator"
   test_passages:
+    gist_description: "Question of the %{test_title} test"
     show:
       header: "You are passing the %{test_title} test"
       question: "Question: "
@@ -175,3 +182,5 @@ en:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
+
+  

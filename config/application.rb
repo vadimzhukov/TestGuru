@@ -16,6 +16,7 @@ module Testguru
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
+
     config.time_zone = 'Moscow'
     # config.eager_load_paths << Rails.root.join("extras")
     # Where the I18n library should search for translation files
@@ -26,5 +27,8 @@ module Testguru
 
     # Set default locale to something other than :en
     I18n.default_locale = :ru
+
+    # Add files in /lib to autoload
+    config.autoload_paths << "#{Rails.root}/lib/clients"
   end
 end

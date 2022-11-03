@@ -80,6 +80,8 @@ ru:
       edit:
         header: "Отредактируйте тест %{title}"
         all_tests: "Все тесты"
+      form:
+        submit: "Создать тест"
     questions:
       form: 
         submit: "Сохранить"
@@ -116,8 +118,14 @@ ru:
         answer_body_title: "Текст ответа"
         answer_is_right: "Правильно"
         back: "Назад"
-
+    gists:
+      index:
+        question: "Вопрос gist'a"
+        url: "Ссылка на gist"
+        user_email: "Email создателя"
+        
   test_passages:
+    gist_description: "Вопрос теста %{test_title}"
     show:
       header: "Вы проходите тест %{test_title}"
       question: "Вопрос: "
@@ -145,3 +153,4 @@ ru:
         few: "Обнаружено %{count} ошибки"
         many: "Обнаружено %{count} ошибок"
         other: "Обнаружено %{count} ошибок"
+        
