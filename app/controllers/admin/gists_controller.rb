@@ -6,9 +6,11 @@ class Admin::GistsController < Admin::BaseController
   end
 
   def create
-    gist = GistQuestionService.new(@test_passage).call
+    gist_obj = GistQuestionService.new(@test_passage)
 
-    if gist&.success?
+    gist = gist_obj.call
+
+    if gist_obj.response_success?
       link = helpers.link_to 'gist', gist.url, target: '_blank'
       flash_options = { notice: "The #{link} was successfuly created." }
 

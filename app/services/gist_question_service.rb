@@ -11,11 +11,15 @@ class GistQuestionService
   end
 
   def call
-    result = create_structured_gist
+    gist = structured_gist
 
-    gist = @test_passage.gists.new({ url: result.url, gist_hash: result.id,
-                                     question: @question })
-    result if gist.save
+    stored_gist = @test_passage.gists.new({ url: gist.url, gist_hash: gist.id,
+                                            question: @question })
+    gist if stored_gist.save
+  end
+
+  def response_success?
+    @client.last_response.status.to_s.match(/^20\d$/)
   end
 
   private
@@ -24,12 +28,14 @@ class GistQuestionService
     Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
   end
 
-  def create_structured_gist
-    Struct.new('StructuredGist', :id, :url, :success?)
-    gist = @client.create_gist(gist_params)
-    response_status_success = @client.last_response.status.to_s.match(/^20\d$/)
+  def create_gist
+    @client.create_gist(gist_params)
+  end
 
-    Struct::StructuredGist.new(gist[:id], gist[:html_url], response_status_success)
+  def structured_gist
+    Struct.new('StructuredGist', :id, :url)
+    gist = create_gist
+    Struct::StructuredGist.new(gist[:id], gist[:html_url])
   end
 
   def gist_params
