@@ -8,7 +8,11 @@
     <table class="table " >
       <thead class="table-active ">
         <th><%= t('.test_id') %></th>
-        <th><%= t('.title') %></th>
+        <th class= "sort-by-title pointer">
+          <%= t('.title') %>
+          <i class="bi bi-caret-up-fill hide"></i>
+          <i class="bi bi-caret-down-fill hide"></i>
+        </th>
         <th><%= t('.questions_count') %></th>
         <th colspan="4" class= "text-center" ><%= t('.actions') %></th>
       </thead>
