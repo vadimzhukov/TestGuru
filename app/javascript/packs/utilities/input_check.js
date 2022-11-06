@@ -8,7 +8,8 @@ document.addEventListener("turbolinks:load", function() {
     passwordConfirmInput.addEventListener('input', () => {
     let password = passwordInput.value
     let passwordConfirmation = passwordConfirmInput.value
-      if (passwordConfirmation != password) {
+   
+    if (passwordConfirmation != password && passwordConfirmation != '') {
         passwordConfirmInput.classList.add('is-invalid')
         passwordConfirmationErrorMessage.classList.remove('hide');
       }

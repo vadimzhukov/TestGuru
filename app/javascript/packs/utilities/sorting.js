@@ -18,18 +18,17 @@ document.addEventListener("turbolinks:load", function() {
     }
 
     if (arrowUp.classList.contains('hide')) {
-    sortedRows.sort(compareRowsASC);
-    
-    arrowUp.classList.remove('hide');
-    arrowDown.classList.add('hide');
-    
+      sortedRows.sort(compareRowsASC);
+      
+      arrowUp.classList.remove('hide');
+      arrowDown.classList.add('hide');
     }
 
     else {
       sortedRows.sort(compareRowsDESC);
     
-    arrowUp.classList.add('hide');
-    arrowDown.classList.remove('hide');
+      arrowUp.classList.add('hide');
+      arrowDown.classList.remove('hide');
     }
 
     let sortedTable = document.createElement('table');
@@ -37,15 +36,12 @@ document.addEventListener("turbolinks:load", function() {
     sortedTable.appendChild(rows[0]);
 
     sortedRows.forEach((el) => {
-      sortedTable.appendChild(el);
+        sortedTable.appendChild(el);
     })
 
     let tableParentNode = table.parentNode
     tableParentNode.removeChild(table);
     tableParentNode.appendChild(sortedTable);
-
-   
-
 
     function compareRowsASC(row1, row2) {
       let titleValue1 = row1.querySelector('.title-col').textContent
