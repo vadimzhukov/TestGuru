@@ -1,6 +1,6 @@
 <tr>
   <td><%= link_to test.id, admin_test_path(test), class: %w[link-secondary] %></td>
-  <td><%= test.title %></td>
+  <td  class = "title-col"><%= test.title %></td>
   <td ><%= link_to test.questions.count, admin_test_path(test), class: %w[link-secondary]  %></td>
   <td><%= link_to t(".edit"), edit_admin_test_path(test), class: %w[link-secondary] %></td>
   <td><%= link_to t(".add_question"), new_admin_test_question_path(test), class: %w[link-secondary] %></td>

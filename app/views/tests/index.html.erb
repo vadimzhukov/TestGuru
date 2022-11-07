@@ -8,11 +8,13 @@
 <div class="row">
   <div class="col">
     <table class="table " >
-      <tr class="table-active ">
-        <th>
-          <%= t('.id') %>
+      <tr class="table-active">
+        <th><%= t('.id') %></th>
+        <th class= "sort-by-title pointer">
+          <%= t('.title') %>
+          <i class="bi bi-caret-up-fill hide"></i>
+          <i class="bi bi-caret-down-fill hide"></i>
         </th>
-        <th><%= t('.title') %></th>
         <th><%= t('.questions_count') %></th>
         <th class="text-center "><%= t('.actions') %></th>
       </tr>

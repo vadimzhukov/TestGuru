@@ -2,7 +2,7 @@
   <div class="col col-md-4 mt-3">
     <h1><%= t('.header') %></h1>
     <div class="card border-primary my-3">
-      <div class="card-body ">
+      <div class="card-body">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-group">
             <p>
@@ -11,19 +11,19 @@
             </p>
             <p>
               <%= f.label :password %>
-              <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+              <%= f.password_field :password, autocomplete: "off", class: "form-control password-input" %>
             </p>
             <% if devise_mapping.rememberable? %>
-              <div class="form-check">
+              <p>
                 <%= f.label :remember_me, class: "form-check-label" do %>
-                  <%= f.check_box :remember_me, class: "form-check-input" %>
+                  <%= f.check_box :remember_me, class: "form-control" %>
                   <%= t('.remember')%>
                 <% end %>
-              </div>
+              </p>
             <% end %>
-          </div>
-          <%= f.submit t('.enter'), class: "btn btn-success mt-3" %>
-        <% end %>
+            <%= f.submit t('.enter'), class: "btn btn-success mt-3" %>
+          <% end %>
+        </div>
       </div>
     </div>
     <%= render "devise/shared/links" %>
