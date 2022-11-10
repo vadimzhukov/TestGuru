@@ -123,6 +123,7 @@ ru:
         question: "Вопрос gist'a"
         url: "Ссылка на gist"
         user_email: "Email создателя"
+        header: "Сохраненные gist-ы"
         
   test_passages:
     gist_description: "Вопрос теста %{test_title}"

@@ -1,5 +1,5 @@
 <tr>
-  <td><%= link_to test.id, admin_test_path(test), class: %w[link-secondary] %></td>
+  <td class="text-center"><%= link_to test.id, admin_test_path(test), class: %w[link-secondary] %></td>
   <td  class = "title-col" >
     <%= content_tag :span, test.title, class: "test-title", data: {test_id: test.id} %>
     <%= render 'form_inline', test: test == @test ? @test : test %>
@@ -11,7 +11,7 @@
       <i class="bi bi-pencil-fill" ></i>
     <% end %>
   </td>
-  <td ><%= link_to test.questions.count, admin_test_path(test), class: %w[link-secondary]  %></td>
+  <td class="text-center"><%= link_to test.questions.count, admin_test_path(test), class: "link-secondary "  %></td>
   <td><%= link_to t(".edit"), edit_admin_test_path(test), class: %w[link-secondary] %></td>
   <td><%= link_to t(".add_question"), new_admin_test_question_path(test), class: %w[link-secondary] %></td>
   <td><%= link_to t(".delete"), admin_test_path(test), method: :delete, class: %w[link-secondary], data: {confirm: "Уверены, что хотите удалить этот тест?"} %></td>
