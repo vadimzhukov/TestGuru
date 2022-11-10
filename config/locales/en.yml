@@ -97,8 +97,6 @@ en:
         questions_count: "Questions count"
         actions: "Actions"
         add_test: "Add test"
-      form:
-        submit: "Create new test"
       show:
         header: "Test: %{title}"
         edit: "Edit test"
@@ -114,6 +112,8 @@ en:
       edit:
           header: "Edit the %{title} test"
           all_tests: "All tests"
+      form:
+        submit: "Save"
     questions:
       form: 
         submit: "Submit"
@@ -155,12 +155,15 @@ en:
         question: "Question of gist"
         url: "Gist URL"
         user_email: "Email of gist creator"
+        header: "Saved gists"
+                
   test_passages:
     gist_description: "Question of the %{test_title} test"
     show:
       header: "You are passing the %{test_title} test"
       question: "Question: "
       submit: "Submit answer"
+      progress: "Passing progress"
     result: 
       header: "Result of passing the %{test_title} test" 
       results: "Test completed %{res}"

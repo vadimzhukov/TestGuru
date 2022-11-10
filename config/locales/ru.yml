@@ -81,7 +81,7 @@ ru:
         header: "Отредактируйте тест %{title}"
         all_tests: "Все тесты"
       form:
-        submit: "Создать тест"
+        submit: "Сохранить"
     questions:
       form: 
         submit: "Сохранить"
@@ -123,6 +123,7 @@ ru:
         question: "Вопрос gist'a"
         url: "Ссылка на gist"
         user_email: "Email создателя"
+        header: "Сохраненные gist-ы"
         
   test_passages:
     gist_description: "Вопрос теста %{test_title}"
@@ -130,6 +131,7 @@ ru:
       header: "Вы проходите тест %{test_title}"
       question: "Вопрос: "
       submit: "Зафиксировать ответ"
+      progress: "Прогресс прохождения"
     result: 
       header: "Результат прохождения теста %{test_title}" 
       results: "Тест пройден %{res}"

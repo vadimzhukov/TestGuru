@@ -9,13 +9,13 @@
   <div class="col">
     <table class="table " >
       <tr class="table-active">
-        <th><%= t('.id') %></th>
-        <th class= "sort-by-title pointer">
+        <th class="text-center"><%= t('.id') %></th>
+        <th class= "sort-by-title pointer text-center">
           <%= t('.title') %>
           <i class="bi bi-caret-up-fill hide"></i>
           <i class="bi bi-caret-down-fill hide"></i>
         </th>
-        <th><%= t('.questions_count') %></th>
+        <th class="text-center"><%= t('.questions_count') %></th>
         <th class="text-center "><%= t('.actions') %></th>
       </tr>
       <%= render @tests %>
