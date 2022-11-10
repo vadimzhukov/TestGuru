@@ -19,5 +19,10 @@
     <p>
       <%= t('.question') %> <%= @test_passage.question_index || "1"%> / <%= @test_passage.test.questions.count %>
     </p>
+    <p><%= t('.progress') %></p>
+    <div class="progress">
+      <% progress_prc = ((@test_passage.question_index || 1).to_f / @test_passage.test.questions.count) * 100 %>
+      <%= content_tag :div, nil, class: "progress-bar bg-warning", style: "width: #{progress_prc}%" %>
+    </div>
   </div>
 </div>

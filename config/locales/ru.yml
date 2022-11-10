@@ -130,6 +130,7 @@ ru:
       header: "Вы проходите тест %{test_title}"
       question: "Вопрос: "
       submit: "Зафиксировать ответ"
+      progress: "Прогресс прохождения"
     result: 
       header: "Результат прохождения теста %{test_title}" 
       results: "Тест пройден %{res}"

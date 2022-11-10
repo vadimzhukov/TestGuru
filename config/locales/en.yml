@@ -161,6 +161,7 @@ en:
       header: "You are passing the %{test_title} test"
       question: "Question: "
       submit: "Submit answer"
+      progress: "Passing progress"
     result: 
       header: "Result of passing the %{test_title} test" 
       results: "Test completed %{res}"
