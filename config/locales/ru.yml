@@ -81,7 +81,7 @@ ru:
         header: "Отредактируйте тест %{title}"
         all_tests: "Все тесты"
       form:
-        submit: "Создать тест"
+        submit: "Сохранить"
     questions:
       form: 
         submit: "Сохранить"

@@ -1,6 +1,16 @@
 <tr>
   <td><%= link_to test.id, admin_test_path(test), class: %w[link-secondary] %></td>
-  <td  class = "title-col"><%= test.title %></td>
+  <td  class = "title-col" >
+    <%= content_tag :span, test.title, class: "test-title", data: {test_id: test.id} %>
+    <%= render 'form_inline', test: test == @test ? @test : test %>
+  </td>
+  <td  class = "title-col" >
+    <%= link_to edit_admin_test_path(test), 
+                class: "test-title edit-btn",
+                data: { test_id: test.id } do %>
+      <i class="bi bi-pencil-fill" ></i>
+    <% end %>
+  </td>
   <td ><%= link_to test.questions.count, admin_test_path(test), class: %w[link-secondary]  %></td>
   <td><%= link_to t(".edit"), edit_admin_test_path(test), class: %w[link-secondary] %></td>
   <td><%= link_to t(".add_question"), new_admin_test_question_path(test), class: %w[link-secondary] %></td>
