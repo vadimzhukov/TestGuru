@@ -30,7 +30,9 @@ gem 'devise', '~>4.0'
 
 gem 'net-imap', require: false
 gem 'net-pop', require: false
+gem 'net-smtp', require: false
 
+gem 'mail', '>= 2.8.0.rc1'
 # LOCALIZATION
 
 gem 'rails-i18n', '~>7.0.0'
