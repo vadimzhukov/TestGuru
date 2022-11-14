@@ -33,29 +33,29 @@ categories = Category.create([
                              ])
 
 tests = Test.create([
-                      { title: 'Data types', level: 0, category_id: categories[0].id, author_id: user1.id },
-                      { title: 'Blocks', level: 1, category_id: categories[0].id, author_id: user1.id },
-                      { title: 'Modules', level: 1, category_id: categories[0].id, author_id: user1.id },
-                      { title: 'Migrations', level: 2, category_id: categories[1].id, author_id: user1.id },
-                      { title: 'async await', level: 2, category_id: categories[2].id, author_id: user1.id },
-                      { title: 'k8s HPA', level: 6, category_id: categories[3].id, author_id: user1.id }
+                      { title: 'Data types', level: 0, category: categories[0], author: user1 },
+                      { title: 'Blocks', level: 1, category: categories[0], author: user1 },
+                      { title: 'Modules', level: 1, category: categories[0], author: user1 },
+                      { title: 'Migrations', level: 2, category: categories[1], author: user1 },
+                      { title: 'async await', level: 2, category: categories[2], author: user1 },
+                      { title: 'k8s HPA', level: 6, category: categories[3], author: user1 }
                     ])
 
 questions = Question.create([
-                              { body: 'Какого типа данных нет в Ruby?', test_id: tests[0].id },
+                              { body: 'Какого типа данных нет в Ruby?', test: tests[0] },
                               { body: 'Какой метод служит для создания внешнего ключа в миграциях Ruby?',
-                                test_id: tests[3].id },
-                              { body: 'Что возвращает функция async (JS)', test_id: tests[4].id },
-                              { body: 'Что не является объектом в Ruby?', test_id: tests[0].id }
+                                test: tests[3] },
+                              { body: 'Что возвращает функция async (JS)', test: tests[4] },
+                              { body: 'Что не является объектом в Ruby?', test: tests[0] }
                             ])
 
 answers = Answer.create([
-                          { body: 'Boolean', correct: 0, question_id: questions[0].id },
-                          { body: 'varchar', correct: 1, question_id: questions[0].id },
-                          { body: 'add_reference', correct: 1, question_id: questions[1].id },
-                          { body: 'Boolean', correct: 0, question_id: questions[1].id },
-                          { body: 'Промис', correct: 1, question_id: questions[2].id },
-                          { body: 'True/False', correct: 0, question_id: questions[2].id },
-                          { body: 'Классы', correct: 0, question_id: questions[3].id },
-                          { body: 'Блоки', correct: 1, question_id: questions[3].id }
+                          { body: 'Boolean', correct: 0, question: questions[0] },
+                          { body: 'varchar', correct: 1, question: questions[0] },
+                          { body: 'add_reference', correct: 1, question: questions[1] },
+                          { body: 'Boolean', correct: 0, question: questions[1] },
+                          { body: 'Промис', correct: 1, question: questions[2] },
+                          { body: 'True/False', correct: 0, question: questions[2] },
+                          { body: 'Классы', correct: 0, question: questions[3] },
+                          { body: 'Блоки', correct: 1, question: questions[3] }
                         ])

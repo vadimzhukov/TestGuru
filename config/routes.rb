@@ -31,4 +31,8 @@ Rails.application.routes.draw do
     end
     resources :gists, only: %i[index create]
   end
+
+  authenticate :user, ->(user) { user.admin? } do
+    mount PgHero::Engine, at: 'pghero'
+  end
 end
