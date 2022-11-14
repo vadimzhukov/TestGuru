@@ -26,8 +26,10 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise', '~>4.0'
 
-# DISABLE SMTP for DEVISE in DEVELOPMENT MODE
+# DISABLE IMAP, POP3, SMTP for DEVISE in DEVELOPMENT MODE
 
+gem 'net-imap', require: false
+gem 'net-pop', require: false
 gem 'net-smtp', require: false
 
 # LOCALIZATION
