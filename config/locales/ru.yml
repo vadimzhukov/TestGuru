@@ -138,7 +138,10 @@ ru:
         url: "Ссылка на gist"
         user_email: "Email создателя"
         header: "Сохраненные gist-ы"
-        
+      create:
+        gist_created: "%{gist_link} успешно создан"
+        gist_failed: "Gist с замечаниями не был создан, попробуйте создать позже"
+
   test_passages:
     gist_description: "Вопрос теста %{test_title}"
     show:
@@ -146,6 +149,7 @@ ru:
       question: "Вопрос: "
       submit: "Зафиксировать ответ"
       progress: "Прогресс прохождения"
+      gist_link: "Создать замечание к содержанию вопроса или ответов"
     result: 
       header: "Результат прохождения теста %{test_title}" 
       results: "Тест пройден %{res}"

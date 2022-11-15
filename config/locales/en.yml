@@ -170,6 +170,9 @@ en:
         url: "Gist URL"
         user_email: "Email of gist creator"
         header: "Saved gists"
+      create:
+        gist_created: "The %{gist_link} was successfuly created"
+        gist_failed: "The gist was not created, try again later"
                 
   test_passages:
     gist_description: "Question of the %{test_title} test"
@@ -178,6 +181,7 @@ en:
       question: "Question: "
       submit: "Submit answer"
       progress: "Passing progress"
+      gist_link: "Generate note on question or answers content" 
     result: 
       header: "Result of passing the %{test_title} test" 
       results: "Test completed %{res}"

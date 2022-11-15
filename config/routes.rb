@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   end
 
   root to: redirect('/users/login')
-  # root to: 'tests#index'
 
   devise_for :users, path: :users, path_names: { sign_in: :login, sign_out: :logout }
 
