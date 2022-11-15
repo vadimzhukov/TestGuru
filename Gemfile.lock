@@ -297,7 +297,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   listen (~> 3.3)
-  mail (>= 2.8.0.rc1)
+  mail
   net-imap
   net-pop
   net-smtp
