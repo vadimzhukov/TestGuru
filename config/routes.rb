@@ -3,7 +3,8 @@ Rails.application.routes.draw do
     get 'gists/index'
   end
 
-  root to: 'tests#index'
+  root to: redirect('/users/login')
+  # root to: 'tests#index'
 
   devise_for :users, path: :users, path_names: { sign_in: :login, sign_out: :logout }
 

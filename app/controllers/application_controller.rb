@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
       flash[:welcome] = t('.hello', name: current_user.name, surname: current_user.last_name)
       admin_tests_path
     else
-      root
+      tests_path
     end
   end
 
