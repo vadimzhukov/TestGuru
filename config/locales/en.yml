@@ -41,6 +41,16 @@ en:
       new:
         header: "Sign up"
 
+    passwords:
+      new:
+        forgot_password: "Forgot your password?"
+        reset_instructions: "Send me reset password instructions"
+
+    confirmations:
+      new:
+        resend_instructions: "Resend confirmation instructions"
+        resend_btn: "Resend confirmation instructions"
+
   tests:
     index:
       header: "Available tests"

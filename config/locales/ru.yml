@@ -10,6 +10,16 @@ ru:
       new:
         header: "Зарегистрироваться"
 
+    passwords:
+      new:
+        forgot_password: "Забыл(а) пароль?"
+        reset_instructions: "Отправить на почту"
+
+    confirmations:
+      new:
+        resend_instructions: "Направить инструкции подтверждения регистрации"
+        resend_btn: "Отправить на почту"
+
   tests:
     index:
       header: "Доступные тесты"
