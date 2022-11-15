@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'gists/index'
   end
+
   root to: 'tests#index'
 
-  devise_for :users, path: :users, path_names: { sign_in: :login, sign_out: :logout },
-                     controllers: { confirmations: 'devise/confirmations' }
+  devise_for :users, path: :users, path_names: { sign_in: :login, sign_out: :logout }
 
   resources :tests, only: :index do
     member do
