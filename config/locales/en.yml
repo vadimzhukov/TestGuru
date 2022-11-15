@@ -40,11 +40,15 @@ en:
     registrations:
       new:
         header: "Sign up"
+        submit: "Sign up"
 
     passwords:
       new:
         forgot_password: "Forgot your password?"
         reset_instructions: "Send me reset password instructions"
+      edit:
+        header: "Change your password"
+        submit: "Change my password"
 
     confirmations:
       new:

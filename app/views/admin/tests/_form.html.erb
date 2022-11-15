@@ -8,10 +8,10 @@
             <%= form.label :title %>
             <%= form.text_field :title, class: "form-control"  %>
           </p>
-          <p>
+          <div>
             <%= form.label :category_id %>
-            <%= form.collection_select :category_id, Category.order(:title), :id, :title, prompt: true, class: "form-control dropdown-menu" %>
-          </p>
+            <%= form.collection_select :category_id, Category.order(:title), :id, :title, prompt: true %>
+          </div>
           <%= form.submit t(".submit"), class: "btn btn-primary"  %>
         </div>
       <% end %>

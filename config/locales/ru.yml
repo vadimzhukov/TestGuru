@@ -8,12 +8,16 @@ ru:
 
     registrations:
       new:
-        header: "Зарегистрироваться"
+        header: "Регистрация"
+        submit: "Зарегистрироваться"
 
     passwords:
       new:
         forgot_password: "Забыл(а) пароль?"
         reset_instructions: "Отправить на почту"
+      edit: 
+        header: "Изменение пароля"
+        submit: "Внести изменения"
 
     confirmations:
       new:
