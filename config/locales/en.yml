@@ -204,4 +204,6 @@ en:
         one: "%{count} error detected"
         other: "%{count} errors detected"
 
-  
+  feedbacks:
+    new:
+      header: "Send your feedback to admin"

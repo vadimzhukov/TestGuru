@@ -1,0 +1,8 @@
+<div class="card border-primary my-3">
+  <div class="card-body">
+    <%= form_with model: @feedback, local: true, class: "form-group" do |f| %>
+      <%= f.text_area :body, class: "form-control", rows: "5" %>
+      <%= f.submit "Send", class: "btn btn-primary mt-3"%>
+    <% end %>
+  </div>
+</div>
