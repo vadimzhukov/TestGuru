@@ -199,6 +199,7 @@ en:
       EN: "EN"
     footer:
       description: "Admin can create tests with questions and answers. Users can pass tests answering questions."
+      send_feedback: "Send feedback to administrator"
     errors:
       header:
         one: "%{count} error detected"
