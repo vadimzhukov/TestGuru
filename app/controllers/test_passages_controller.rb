@@ -3,7 +3,13 @@ class TestPassagesController < ApplicationController
 
   before_action :set_test_passage, only: %i[show update result gist]
 
-  def show; end
+  def show
+    if @test_passage.test.questions.count == 0
+      redirect_to tests_path, alert: 'Этот тест нельзя пройти, пока в нем нет вопросов'
+    else
+      render :show
+    end
+  end
 
   def update
     @test_passage.accept!(params[:answer_ids])
