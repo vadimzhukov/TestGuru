@@ -3,7 +3,7 @@ class TestsController < ApplicationController
   before_action :set_test, only: %i[start]
 
   def index
-    @tests = Question.all.map(&:test).uniq
+    @tests = Test.with_questions
   end
 
   def start

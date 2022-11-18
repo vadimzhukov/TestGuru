@@ -11,6 +11,7 @@ class Test < ApplicationRecord
   validates :level, numericality: { only_integer: true, greter_than: 0 }
   validates :level, uniqueness: { scope: :title, message: I18n.t('.level_title_unique_error') }
 
+  scope :with_questions, -> { joins(:questions).select('tests.*').distinct.order(id: :asc) }
   scope :easy, -> { where(level: 0..1) }
   scope :medium, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
