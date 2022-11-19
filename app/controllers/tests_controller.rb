@@ -3,7 +3,7 @@ class TestsController < ApplicationController
   before_action :set_test, only: %i[start]
 
   def index
-    @tests = Test.with_questions
+    @tests = Test.published
   end
 
   def start

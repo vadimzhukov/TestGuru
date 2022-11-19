@@ -12,7 +12,13 @@
             <%= form.label :category_id %>
             <%= form.collection_select :category_id, Category.order(:title), :id, :title, prompt: true %>
           </div>
-          <%= form.submit t(".submit"), class: "btn btn-primary"  %>
+          <div class="form-check">
+            <%= form.label :publish, class: "form-check-label" do%>
+              <%= form.check_box :published, id: :publish, class: "form-check-input" %>
+              <%= t('.publish') %>
+            <% end %>
+          </div>
+          <%= form.submit t(".save"), name: "save", class: "btn btn-primary"  %>
         </div>
       <% end %>
     </div>

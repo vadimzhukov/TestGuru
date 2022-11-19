@@ -11,6 +11,7 @@
       <i class="bi bi-pencil-fill" ></i>
     <% end %>
   </td>
+  <td class="text-center"><%= test.published ? "Опубликован" : "Не опубликован" %></td>
   <td class="text-center"><%= link_to test.questions_count, admin_test_path(test), class: "link-secondary "  %></td>
   <td><%= link_to t(".edit"), edit_admin_test_path(test), class: %w[link-secondary] %></td>
   <td><%= link_to t(".add_question"), new_admin_test_question_path(test), class: %w[link-secondary] %></td>

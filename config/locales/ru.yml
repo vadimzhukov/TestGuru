@@ -79,6 +79,7 @@ ru:
         questions_count: "Количество вопросов"
         actions: "Действия"
         add_test: "Добавить тест"
+        status: "Статус"
       show:
         header: "Тест: %{title}"
         edit: "Редактировать тест"
@@ -90,12 +91,14 @@ ru:
       new:
         header: "Новый тест"
       create:
-        success: "Тест был успешно создан"
+        success: "Тест успешно создан"
+        published: "Тест успешно опубликован"
       edit:
         header: "Отредактируйте тест %{title}"
         all_tests: "Все тесты"
       form:
-        submit: "Сохранить"
+        save: "Сохранить"
+        publish: "Опубликовать"
     questions:
       form: 
         submit: "Сохранить"
@@ -178,3 +181,5 @@ ru:
   feedbacks:
     new:
       header: "Отправьте отзыв администратору"
+
+  publish_error: "Нельзя опубликовать тест без вопросов"

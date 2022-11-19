@@ -111,6 +111,7 @@ en:
         questions_count: "Questions count"
         actions: "Actions"
         add_test: "Add test"
+        status: "Status"
       show:
         header: "Test: %{title}"
         edit: "Edit test"
@@ -123,11 +124,13 @@ en:
         header: "New test"
       create:
         success: "Test was successfuly created"
+        published: "Test was successfuly published"
       edit:
           header: "Edit the %{title} test"
           all_tests: "All tests"
       form:
-        submit: "Save"
+        save: "Save"
+        publish: "Publish"
     questions:
       form: 
         submit: "Submit"
@@ -208,3 +211,5 @@ en:
   feedbacks:
     new:
       header: "Send your feedback to admin"
+      
+  publish_error: "Test without questions can't be published"
