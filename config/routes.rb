@@ -2,16 +2,18 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'gists/index'
   end
-  root to: 'tests#index'
 
-  devise_for :users, path: :users, path_names: { sign_in: :login, sign_out: :logout },
-                     controllers: { confirmations: 'devise/confirmations' }
+  root to: redirect('/users/login')
+
+  devise_for :users, path: :users, path_names: { sign_in: :login, sign_out: :logout }
 
   resources :tests, only: :index do
     member do
       post :start
     end
   end
+
+  resources :feedbacks, only: %i[new create]
 
   resources :test_passages, only: %i[show update] do
     member do
@@ -30,5 +32,9 @@ Rails.application.routes.draw do
       end
     end
     resources :gists, only: %i[index create]
+  end
+
+  authenticate :user, ->(user) { user.admin? } do
+    mount PgHero::Engine, at: 'pghero'
   end
 end

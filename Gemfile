@@ -5,8 +5,8 @@ ruby '3.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.6', '>= 6.1.6.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+# Use postgreSQL as the database for Active Record
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -26,9 +26,11 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise', '~>4.0'
 
-# DISABLE SMTP for DEVISE in DEVELOPMENT MODE
+# DISABLE IMAP, POP3, SMTP for DEVISE in DEVELOPMENT MODE
 
-gem 'net-smtp', require: false
+gem 'net-imap', require: false
+gem 'net-pop', require: false
+gem 'net-smtp'
 
 # LOCALIZATION
 
@@ -80,3 +82,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+# PgHero gem for postgreSQL profiling dashboard
+gem 'pghero'
+gem 'pg_query', '>= 2'

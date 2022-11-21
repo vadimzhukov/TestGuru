@@ -1,6 +1,6 @@
 <nav class='navbar navbar-light px-3' >
   <%= image_tag("guru_squared.jpg", :alt => "guru_logo", size: "60x60") %>
-  <%= link_to "TestGuru", root_path, class: "navbar navbar-brand " %>
+  <%= link_to "TestGuru", tests_path, class: "navbar navbar-brand " %>
   <% if current_user&.admin? %>
     <div class="navbar-text">
       <%= link_to t(".edit_tests"), admin_tests_path %>

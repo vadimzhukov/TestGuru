@@ -8,7 +8,21 @@ ru:
 
     registrations:
       new:
-        header: "Зарегистрироваться"
+        header: "Регистрация"
+        submit: "Зарегистрироваться"
+
+    passwords:
+      new:
+        forgot_password: "Забыл(а) пароль?"
+        reset_instructions: "Отправить на почту"
+      edit: 
+        header: "Изменение пароля"
+        submit: "Внести изменения"
+
+    confirmations:
+      new:
+        resend_instructions: "Направить инструкции подтверждения регистрации"
+        resend_btn: "Отправить на почту"
 
   tests:
     index:
@@ -65,6 +79,7 @@ ru:
         questions_count: "Количество вопросов"
         actions: "Действия"
         add_test: "Добавить тест"
+        status: "Статус"
       show:
         header: "Тест: %{title}"
         edit: "Редактировать тест"
@@ -76,12 +91,14 @@ ru:
       new:
         header: "Новый тест"
       create:
-        success: "Тест был успешно создан"
+        success: "Тест успешно создан"
+        published: "Тест успешно опубликован"
       edit:
         header: "Отредактируйте тест %{title}"
         all_tests: "Все тесты"
       form:
-        submit: "Сохранить"
+        save: "Сохранить"
+        publish: "Опубликовать"
     questions:
       form: 
         submit: "Сохранить"
@@ -124,7 +141,10 @@ ru:
         url: "Ссылка на gist"
         user_email: "Email создателя"
         header: "Сохраненные gist-ы"
-        
+      create:
+        gist_created: "%{gist_link} успешно создан"
+        gist_failed: "Gist с замечаниями не был создан, попробуйте создать позже"
+
   test_passages:
     gist_description: "Вопрос теста %{test_title}"
     show:
@@ -132,6 +152,7 @@ ru:
       question: "Вопрос: "
       submit: "Зафиксировать ответ"
       progress: "Прогресс прохождения"
+      gist_link: "Создать замечание к содержанию вопроса или ответов"
     result: 
       header: "Результат прохождения теста %{test_title}" 
       results: "Тест пройден %{res}"
@@ -149,6 +170,7 @@ ru:
       RU: "RU"
     footer:
       description: "Можно создавать тесты с перечнем вопросов и варианами ответов, можно проходить тесты, отвечая на вопросы."
+      send_feedback: "Отправить отзыв администратору"
     errors:
       header:
         one: "Обнаружена %{count} ошибка"
@@ -156,3 +178,8 @@ ru:
         many: "Обнаружено %{count} ошибок"
         other: "Обнаружено %{count} ошибок"
         
+  feedbacks:
+    new:
+      header: "Отправьте отзыв администратору"
+
+  publish_error: "Нельзя опубликовать тест без вопросов"

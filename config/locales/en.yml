@@ -40,6 +40,20 @@ en:
     registrations:
       new:
         header: "Sign up"
+        submit: "Sign up"
+
+    passwords:
+      new:
+        forgot_password: "Forgot your password?"
+        reset_instructions: "Send me reset password instructions"
+      edit:
+        header: "Change your password"
+        submit: "Change my password"
+
+    confirmations:
+      new:
+        resend_instructions: "Resend confirmation instructions"
+        resend_btn: "Resend confirmation instructions"
 
   tests:
     index:
@@ -97,6 +111,7 @@ en:
         questions_count: "Questions count"
         actions: "Actions"
         add_test: "Add test"
+        status: "Status"
       show:
         header: "Test: %{title}"
         edit: "Edit test"
@@ -109,11 +124,13 @@ en:
         header: "New test"
       create:
         success: "Test was successfuly created"
+        published: "Test was successfuly published"
       edit:
           header: "Edit the %{title} test"
           all_tests: "All tests"
       form:
-        submit: "Save"
+        save: "Save"
+        publish: "Publish"
     questions:
       form: 
         submit: "Submit"
@@ -156,6 +173,9 @@ en:
         url: "Gist URL"
         user_email: "Email of gist creator"
         header: "Saved gists"
+      create:
+        gist_created: "The %{gist_link} was successfuly created"
+        gist_failed: "The gist was not created, try again later"
                 
   test_passages:
     gist_description: "Question of the %{test_title} test"
@@ -164,6 +184,7 @@ en:
       question: "Question: "
       submit: "Submit answer"
       progress: "Passing progress"
+      gist_link: "Generate note on question or answers content" 
     result: 
       header: "Result of passing the %{test_title} test" 
       results: "Test completed %{res}"
@@ -181,9 +202,14 @@ en:
       EN: "EN"
     footer:
       description: "Admin can create tests with questions and answers. Users can pass tests answering questions."
+      send_feedback: "Send feedback to administrator"
     errors:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
 
-  
+  feedbacks:
+    new:
+      header: "Send your feedback to admin"
+      
+  publish_error: "Test without questions can't be published"

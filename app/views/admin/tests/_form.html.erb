@@ -8,11 +8,17 @@
             <%= form.label :title %>
             <%= form.text_field :title, class: "form-control"  %>
           </p>
-          <p>
+          <div>
             <%= form.label :category_id %>
-            <%= form.collection_select :category_id, Category.order(:title), :id, :title, prompt: true, class: "form-control dropdown-menu" %>
-          </p>
-          <%= form.submit t(".submit"), class: "btn btn-primary"  %>
+            <%= form.collection_select :category_id, Category.order(:title), :id, :title, prompt: true %>
+          </div>
+          <div class="form-check">
+            <%= form.label :publish, class: "form-check-label" do%>
+              <%= form.check_box :published, id: :publish, class: "form-check-input" %>
+              <%= t('.publish') %>
+            <% end %>
+          </div>
+          <%= form.submit t(".save"), name: "save", class: "btn btn-primary"  %>
         </div>
       <% end %>
     </div>

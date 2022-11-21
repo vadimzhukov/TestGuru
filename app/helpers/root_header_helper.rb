@@ -3,7 +3,7 @@ module RootHeaderHelper
     if user&.admin?
       admin_tests_path
     else
-      root_path
+      tests_path
     end
   end
 end

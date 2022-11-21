@@ -1,6 +1,5 @@
 class Admin::QuestionsController < Admin::BaseController
- 
-
+  before_action :authenticate_user!
   before_action :find_test, only: %i[index new create]
   before_action :find_question, only: %i[show edit update destroy]
 
@@ -34,7 +33,7 @@ class Admin::QuestionsController < Admin::BaseController
 
   def destroy
     if @question.destroy
-      redirect_to admin_test_questions_path(@question.test)
+      redirect_to admin_test_path(@question.test)
     else
       render plain: 'При удалении вопроса возникла ошибка'
     end

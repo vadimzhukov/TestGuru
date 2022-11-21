@@ -10,7 +10,7 @@
         </div>
       <% end %>
       <p>
-        <%= link_to "Generate gist", admin_gists_path(test_passage: @test_passage.id), method: :post%>
+        <%= link_to t('.gist_link'), admin_gists_path(test_passage: @test_passage.id), method: :post%>
       </p>
       <p>
         <%= form.submit t('.submit'), class: "btn btn-primary" %>
