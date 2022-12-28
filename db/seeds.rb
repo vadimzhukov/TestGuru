@@ -29,12 +29,14 @@ categories = Category.create([
                                { title: 'Movies' },
                                { title: 'SW Development' },
                                { title: 'Geography' },
-                               { title: 'History' }
+                               { title: 'History' },
+                               { title: 'Politic' }
                              ])
 
 tests = Test.create([
-                      { title: 'Star Wars', level: 0, category: categories[0], author: user1 }
-
+                      { title: 'Star Wars', level: 3, category: categories[0], author: user1 },
+                      { title: 'Short test', level: 0, category: categories[4], author: user1 },
+                      { title: 'Short test2', level: 0, category: categories[3], author: user1 }
                     ])
 
 questions = Question.create([
@@ -67,7 +69,9 @@ questions = Question.create([
                               {
                                 body: 'Какие существа, живущие на Эндоре, помогли повстанцам победить вторую Звезду Смерти?', test: tests[0]
                               },
-                              { body: 'Какого цвета рука C3PO в Star Wars: пробуждение Силы?', test: tests[0] }
+                              { body: 'Какого цвета рука C3PO в Star Wars: пробуждение Силы?', test: tests[0] },
+                              { body: 'Просто выберите Правильный ответ', test: tests[1] },
+                              { body: 'Просто выберите Правильный ответ', test: tests[2] }
                             ])
 
 answers = Answer.create([
@@ -145,5 +149,31 @@ answers = Answer.create([
                           { body: 'Черная', correct: 0, question: questions[14] },
                           { body: 'Красная', correct: 1, question: questions[14] },
                           { body: 'Серебристая', correct: 0, question: questions[14] },
-                          { body: 'Золотистая', correct: 0, question: questions[14] }
+                          { body: 'Золотистая', correct: 0, question: questions[14] },
+                          # Просто выберите Правильный ответ
+                          { body: 'Правильный ответ', correct: 1, question: questions[15] },
+                          { body: 'Неправильный ответ', correct: 0, question: questions[15] },
+                           # Просто выберите Правильный ответ
+                           { body: 'Правильный ответ', correct: 1, question: questions[16] },
+                           { body: 'Неправильный ответ', correct: 0, question: questions[16] }
+
                         ])
+                        
+tests[1].update_attribute(:published, true)
+tests[2].update_attribute(:published, true)
+
+badges = Badge.create([
+                      { title: 'First try success',  description: "The test was passed successfully on the first try" },
+                      { title: 'Cool', description: "More than 90% of right answers in test passage" },
+                      { title: 'Wibe', description: "More than 100% right answers in test passage" },
+                      { title: 'Politic guru', description: "Successfully passed all political tests" },
+                      { title: 'Ninja', description: "At least one successful test in each category" },
+                      { title: 'Guru', description: "Successfuly passed all the tests of all categories" }
+])
+
+badges[0].image.attach(io: File.open(File.join(Rails.root,'app/assets/images/badges/pie.jpg')), filename: 'pie.jpg')
+badges[1].image.attach(io: File.open(File.join(Rails.root,'app/assets/images/badges/cool.jpg')), filename: 'cool.jpg')
+badges[2].image.attach(io: File.open(File.join(Rails.root,'app/assets/images/badges/wibe.jpg')), filename: 'wibe.jpg')
+badges[3].image.attach(io: File.open(File.join(Rails.root,'app/assets/images/badges/globe.jpg')), filename: 'globe.jpg')
+badges[4].image.attach(io: File.open(File.join(Rails.root,'app/assets/images/badges/ghost.jpg')), filename: 'ghost.jpg')
+badges[5].image.attach(io: File.open(File.join(Rails.root,'app/assets/images/badges/owl.jpg')), filename: 'owl.jpg')

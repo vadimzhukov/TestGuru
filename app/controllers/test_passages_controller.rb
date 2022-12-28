@@ -11,11 +11,13 @@ class TestPassagesController < ApplicationController
     if @test_passage.current_question
       render :show
     else
-      redirect_to result_test_passage_path(@test_passage)
+      redirect_to add_badges_path(id: @test_passage)
     end
   end
 
-  def result; end
+  def result
+    @badges = current_user.badges.select{|b| UserBadge.where("test_passage_id = ?", @test_passage.id).pluck('badge_id').include?(b.id)}
+  end
 
   private
 

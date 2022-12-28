@@ -1,0 +1,16 @@
+<div class="container ">
+  <div class="row m-5">
+    <div class="col text-center">
+      <h1><%= t('.header')%></h1>
+    </div>
+  </div>
+
+  <div class="row">
+      
+      <% @badges.uniq.each do |b| %>
+        <%= render 'users/badge', badge: b %>
+      <% end %>
+    
+  </div>
+</div>
+

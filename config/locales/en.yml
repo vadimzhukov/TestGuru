@@ -176,7 +176,31 @@ en:
       create:
         gist_created: "The %{gist_link} was successfuly created"
         gist_failed: "The gist was not created, try again later"
-                
+    
+    badges:
+      index:
+        header: "All badges"
+        title: "Title"
+        image: "Image"
+        description: "Description"
+        edit: "Edit"
+        new_badge: "New badge"
+      badge: 
+        edit_badge: "Edit"
+      form:
+        title: "Title"
+        image: "Image"
+        description: "Description"
+        submit: "Save"
+      new:
+        header: "New badge"
+        badges: "All badges"
+      edit:
+        header: "Edit badge"
+        badges: "All badges"
+      update:
+        success_update: "The badge was updated successfully"
+
   test_passages:
     gist_description: "Question of the %{test_title} test"
     show:
@@ -191,6 +215,10 @@ en:
       successfully: "SUCCESSFULLY"
       unsuccessfully: "UNSUCCESSFULLY"
       right_count: "Right answers count:"
+
+  badges:
+    index:
+      header: "Awailable rewards"
 
   shared:
     nav:
@@ -211,5 +239,9 @@ en:
   feedbacks:
     new:
       header: "Send your feedback to admin"
-      
+
+  users:
+    rewards:
+      header: "Your rewards"
+
   publish_error: "Test without questions can't be published"

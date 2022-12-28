@@ -1,7 +1,7 @@
 class TestPassage < ApplicationRecord
   attr_accessor :question_index
 
-  SUCCESS_THRESHOLD = 0.85
+  SUCCESS_THRESHOLD = 0.8
 
   belongs_to :user
   belongs_to :test
@@ -13,6 +13,7 @@ class TestPassage < ApplicationRecord
 
   def accept!(answer_ids)
     self.correct_answers_count += 1 if correct_answer?(answer_ids)
+    self.successfully = true if successful?
     save!
   end
 

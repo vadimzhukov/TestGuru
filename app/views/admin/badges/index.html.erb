@@ -1,0 +1,14 @@
+<div class="container ">
+  <div class="row m-5">
+    <div class="col text-center">
+      <h1><%= t('.header')%></h1>
+    </div>
+  </div>
+
+  <div class="row">
+    
+      <%= render @badges %>
+    
+  </div>
+  <%= link_to t(".new_badge"), new_admin_badge_path(@badge) %>
+</div>

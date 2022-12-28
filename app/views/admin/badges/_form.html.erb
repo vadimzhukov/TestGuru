@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-md-8">
+      <%= form_with model: [:admin, @badge], local: true do |form| %>
+        <%= render 'shared/errors', resource: @badge %>
+        <div class="form-group">
+          <p>
+            <%= form.label :title, t('.title') %>
+            <%= form.text_field :title, class: "form-control" %>
+          </p>
+          <p>
+            <%= form.label :badge_image, t('.image') %>
+            <%= form.file_field :image, class: "form-control" %>
+          </p>
+          <p>
+            <%= form.label :description, t('.description') %>
+            <%= form.text_area :description, size: "120x5", class: "form-control" %>
+          </p>
+          <%= form.submit t(".submit"), class: "btn btn-primary"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

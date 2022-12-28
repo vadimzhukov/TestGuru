@@ -11,6 +11,9 @@ class User < ApplicationRecord
 
   has_many :feedbacks
 
+  has_many :user_badges
+  has_many :badges, through: :user_badges
+
   # validates :name, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
