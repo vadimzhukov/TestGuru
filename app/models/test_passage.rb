@@ -13,9 +13,13 @@ class TestPassage < ApplicationRecord
 
   def accept!(answer_ids)
     self.correct_answers_count += 1 if correct_answer?(answer_ids)
-    self.successfully = true if successful?
     save!
   end
+
+  def set_final_status
+    self.successfully = true if successful?
+  end
+
 
   def correct_answers_part
     (correct_answers_count.to_f / test.questions.count.to_f).round(1)

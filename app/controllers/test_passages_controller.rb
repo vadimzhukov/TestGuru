@@ -11,6 +11,7 @@ class TestPassagesController < ApplicationController
     if @test_passage.current_question
       render :show
     else
+      @test_passage.set_final_status
       redirect_to add_badges_path(id: @test_passage)
     end
   end

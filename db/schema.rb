@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_27_131351) do
+ActiveRecord::Schema.define(version: 2023_01_09_091356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(version: 2022_12_27_131351) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badge_rules", force: :cascade do |t|
+    t.bigint "badge_id", null: false
+    t.bigint "rule_id", null: false
+    t.string "parameters_thresholds"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["badge_id"], name: "index_badge_rules_on_badge_id"
+    t.index ["rule_id"], name: "index_badge_rules_on_rule_id"
   end
 
   create_table "badges", force: :cascade do |t|
@@ -104,6 +114,13 @@ ActiveRecord::Schema.define(version: 2022_12_27_131351) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["body", "test_id"], name: "index_questions_on_body_and_test_id", unique: true
     t.index ["test_id"], name: "index_questions_on_test_id"
+  end
+
+  create_table "rules", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "parameters"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "test_passages", force: :cascade do |t|
@@ -172,6 +189,8 @@ ActiveRecord::Schema.define(version: 2022_12_27_131351) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "answers", "questions"
+  add_foreign_key "badge_rules", "badges"
+  add_foreign_key "badge_rules", "rules"
   add_foreign_key "feedbacks", "users"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "test_passages"
