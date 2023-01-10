@@ -14,7 +14,7 @@ class RewardService
       test_passage_badges = {}
       all_badges.each do |badge|
         badge_checks = 0
-        BadgeRule.where(badge_id: badge).each do |badge_rule|
+        badge.badge_rules.each do |badge_rule|
           rule_params = badge_rule.parameters_thresholds
           rule_name = Rule.find(badge_rule.rule_id).title
           badge_checks += 1 if rules_check.call(rule_name, rule_params)
