@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'users/show'
-  get 'users/badges'
+  
   namespace :admin do
     get 'gists/index'
   end
@@ -11,11 +11,11 @@ Rails.application.routes.draw do
 
   resources :badges, only: %i[index]
 
-  get 'badges/add', to: 'badges#add', as: 'add_badges'
 
   resources :users, only: %i[show] do
     member do
       get :rewards
+      get :badges
     end
   end
 

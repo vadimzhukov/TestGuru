@@ -17,7 +17,7 @@ class TestPassage < ApplicationRecord
   end
 
   def set_final_status
-    self.successfully = true if successful?
+    self.update_attribute(:successfully, true) if successful?
   end
 
 
@@ -52,7 +52,7 @@ class TestPassage < ApplicationRecord
   end
 
   def before_update_set_next_question
-    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first
+    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first if current_question
     set_question_index
   end
 

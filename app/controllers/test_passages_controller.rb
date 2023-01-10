@@ -12,12 +12,18 @@ class TestPassagesController < ApplicationController
       render :show
     else
       @test_passage.set_final_status
-      redirect_to add_badges_path(id: @test_passage)
+      
+      service = RewardService.new(@test_passage)
+
+      badges = service.call
+
+      flash_options = { notice: t('.badges_created') } if badges
+      redirect_to result_test_passage_path(@test_passage)
     end
   end
 
   def result
-    @badges = current_user.badges.select{|b| UserBadge.where("test_passage_id = ?", @test_passage.id).pluck('badge_id').include?(b.id)}
+    @badges = current_user.badges.select{|b| UserBadge.where(test_passage_id: @test_passage.id).pluck('badge_id').include?(b.id)}
   end
 
   private
