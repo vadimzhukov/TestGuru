@@ -1,21 +1,40 @@
 <div class="row justify-content-center my-3">
   <div class="col text-center">
     <h4><%= t('.header', test_title: @test_passage.test.title) %></h4>
-    <p><strong>
-        <%= t('.results', res: (@test_passage.successful? ? t('.successfully') : t('.unsuccessfully'))) %>
-      </strong>
-    </p>
-    <h3>
-      <%= t('.right_count') %>
-      <font color="<%= @test_passage.successful? ? 'green' : 'red' %>"><%= 100 * @test_passage.correct_answers_part %>%</font>
-    </h3>
-    <h3>
-      <%= t('.got_badges') %>
-    </h3>
-    <div class="row">
-      <% @badges.uniq.each do |b| %>
-        <%= render 'test_passages/badge', badge: b %>
-      <% end %>
-    </div>
+    <% if Time.now - @test_passage.test.timer > @test_passage.created_at %>
+      <h3>
+        <font color="red"><%= t('.time_is_out') %></font>
+      </h3>
+    <% else %>
+      <% if @test_passage.successful? %>
+        <p>
+          <strong>
+            <%= t('.results', res:  t('.successfully')) %>
+          </strong>
+        </p>
+        <h3>
+          <%= t('.right_count') %>
+          <font color="green"><%= 100 * @test_passage.correct_answers_part %>%</font>
+        </h3>
+        <h3>
+          <%= t('.got_badges') %>
+        </h3>
+        <div class="row">
+          <% @badges.uniq.each do |b| %>
+            <%= render 'test_passages/badge', badge: b %>
+          <% end %>
+        </div>
+      <% else %>
+        <p>
+          <strong>
+            <%= t('.results', res:  t('.unsuccessfully')) %>
+          </strong>
+        </p>
+        <h3>
+          <%= t('.right_count') %>
+          <font color="red"><%= 100 * @test_passage.correct_answers_part %>%</font>
+        </h3>
+      <%end%>
+    <% end%>
   </div>
 </div>

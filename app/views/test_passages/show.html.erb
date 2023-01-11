@@ -24,5 +24,7 @@
       <% progress_prc = ((@test_passage.question_index || 1).to_f / @test_passage.test.questions.count) * 100 %>
       <%= content_tag :div, nil, class: "progress-bar bg-warning", style: "width: #{progress_prc}%" %>
     </div>
+    <div id="timer_tag" data-timer="<%= @test_passage.test.timer %>"></div>
+    <span> Timer: </span><span id="timer"></span><span> seconds remaining</span>
   </div>
 </div>
