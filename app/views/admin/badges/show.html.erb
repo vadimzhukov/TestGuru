@@ -1,0 +1,6 @@
+<p id="notice"><%= notice %></p>
+<h2><%= @badge.title %></h2>
+<%= image_tag @badge.image %>
+<h3><%= @badge.description %></h3>
+<%= link_to t('.edit'), edit_admin_badge_path(@badge) %> |
+<%= link_to t('.badges'), admin_badges_path %>

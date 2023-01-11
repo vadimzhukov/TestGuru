@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/show'
+  
   namespace :admin do
     get 'gists/index'
   end
@@ -6,6 +8,16 @@ Rails.application.routes.draw do
   root to: redirect('/users/login')
 
   devise_for :users, path: :users, path_names: { sign_in: :login, sign_out: :logout }
+
+  resources :badges, only: %i[index]
+
+
+  resources :users, only: %i[show] do
+    member do
+      get :rewards
+      get :badges
+    end
+  end
 
   resources :tests, only: :index do
     member do
@@ -32,6 +44,7 @@ Rails.application.routes.draw do
       end
     end
     resources :gists, only: %i[index create]
+    resources :badges
   end
 
   authenticate :user, ->(user) { user.admin? } do

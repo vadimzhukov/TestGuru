@@ -29,12 +29,14 @@ categories = Category.create([
                                { title: 'Movies' },
                                { title: 'SW Development' },
                                { title: 'Geography' },
-                               { title: 'History' }
+                               { title: 'History' },
+                               { title: 'Politic' }
                              ])
 
 tests = Test.create([
-                      { title: 'Star Wars', level: 0, category: categories[0], author: user1 }
-
+                      { title: 'Star Wars', level: 3, category: categories[0], author: user1 },
+                      { title: 'Short test', level: 0, category: categories[4], author: user1 },
+                      { title: 'Short test2', level: 0, category: categories[3], author: user1 }
                     ])
 
 questions = Question.create([
@@ -67,7 +69,9 @@ questions = Question.create([
                               {
                                 body: 'Какие существа, живущие на Эндоре, помогли повстанцам победить вторую Звезду Смерти?', test: tests[0]
                               },
-                              { body: 'Какого цвета рука C3PO в Star Wars: пробуждение Силы?', test: tests[0] }
+                              { body: 'Какого цвета рука C3PO в Star Wars: пробуждение Силы?', test: tests[0] },
+                              { body: 'Просто выберите Правильный ответ', test: tests[1] },
+                              { body: 'Просто выберите Правильный ответ', test: tests[2] }
                             ])
 
 answers = Answer.create([
@@ -145,5 +149,69 @@ answers = Answer.create([
                           { body: 'Черная', correct: 0, question: questions[14] },
                           { body: 'Красная', correct: 1, question: questions[14] },
                           { body: 'Серебристая', correct: 0, question: questions[14] },
-                          { body: 'Золотистая', correct: 0, question: questions[14] }
+                          { body: 'Золотистая', correct: 0, question: questions[14] },
+                          # Просто выберите Правильный ответ
+                          { body: 'Правильный ответ', correct: 1, question: questions[15] },
+                          { body: 'Неправильный ответ', correct: 0, question: questions[15] },
+                           # Просто выберите Правильный ответ
+                           { body: 'Правильный ответ', correct: 1, question: questions[16] },
+                           { body: 'Неправильный ответ', correct: 0, question: questions[16] }
+
                         ])
+                        
+tests[1].update_attribute(:published, true)
+tests[2].update_attribute(:published, true)
+
+rules = Rule.create([
+                    {title: "current_test_tries_equal?", parameters: "[tries]"},
+                    {title: "current_test_successful_passes_equal?", parameters: "[tries]"},
+                    {title: "result_percent_between?", parameters: "[percent_min, percent_max]"},
+                    {title: "badge_existed?", parameters: "[badge_name]"},
+                    {title: "all_tests_passed?"},
+                    {title: "all_tests_of_categories_passed_successfully?", parameters: "[category_ids]"},
+                    {title: "tests_of_all_categories_passed_successfully_except_current?", parameters: ""},
+                    {title: "categories_at_least_once_passed?", parameters: "[category_ids]"},
+                    {title: "all_categories_passed_at_least_once_except?", parameters: "[category_ids]"},
+                    {title: "all_tests_of_levels_passed_successfully?", parameters: "[levels]"},
+                    {title: "tests_of_all_levels_passed_successfully_except?", parameters: "[levels]"}
+])
+
+badges = Badge.create([
+                      { title: 'First try success',  description: "The test was passed successfully on the first try" },
+                      { title: 'Cool', description: "More than 90% of right answers in test passage" },
+                      { title: 'Wibe', description: "More than 100% right answers in test passage" },
+                      { title: 'Ninja', description: "At least one successful test in each category" },
+                      { title: 'Politic guru', description: "Successfully passed all political tests" },
+                      { title: '0 level guru', description: "Successfully passed all political tests" },
+                      { title: 'Guru', description: "Successfuly passed all the tests of all categories" }
+])
+
+badges[0].image.attach(io: File.open(File.join(Rails.root,'app/assets/images/badges/pie.jpg')), filename: 'pie.jpg')
+badges[1].image.attach(io: File.open(File.join(Rails.root,'app/assets/images/badges/cool.jpg')), filename: 'cool.jpg')
+badges[2].image.attach(io: File.open(File.join(Rails.root,'app/assets/images/badges/wibe.jpg')), filename: 'wibe.jpg')
+badges[3].image.attach(io: File.open(File.join(Rails.root,'app/assets/images/badges/globe.jpg')), filename: 'globe.jpg')
+badges[4].image.attach(io: File.open(File.join(Rails.root,'app/assets/images/badges/ghost.jpg')), filename: 'ghost.jpg')
+badges[5].image.attach(io: File.open(File.join(Rails.root,'app/assets/images/badges/skull.jpg')), filename: 'skull.jpg')
+badges[6].image.attach(io: File.open(File.join(Rails.root,'app/assets/images/badges/owl.jpg')), filename: 'owl.jpg')
+
+badge_rules = BadgeRule.create([
+                                {badge_id: badges[0].id, rule_id: rules[0].id, parameters_thresholds: '{"tries": "1"}'},
+                                {badge_id: badges[0].id, rule_id: rules[1].id, parameters_thresholds: '{"tries": "1"}'},
+
+                                {badge_id: badges[1].id, rule_id: rules[2].id, parameters_thresholds: '{"percent_min": "90", "percent_max": "99"}'},
+
+                                {badge_id: badges[2].id, rule_id: rules[2].id, parameters_thresholds: '{"percent_min": "100", "percent_max": "100"}'},
+
+                                {badge_id: badges[3].id, rule_id: rules[6].id},
+                                {badge_id: badges[3].id, rule_id: rules[1].id, parameters_thresholds: '{"tries": "1"}'},
+
+                                {badge_id: badges[4].id, rule_id: rules[5].id, parameters_thresholds: '{"category_ids": "5"}'},
+                                {badge_id: badges[4].id, rule_id: rules[1].id, parameters_thresholds: '{"tries": "1"}'},
+
+                                {badge_id: badges[5].id, rule_id: rules[9].id, parameters_thresholds: '{"levels": "0"}'},
+                                {badge_id: badges[5].id, rule_id: rules[1].id, parameters_thresholds: '{"tries": "1"}'},
+
+                                {badge_id: badges[6].id, rule_id: rules[4].id},
+                                {badge_id: badges[6].id, rule_id: rules[1].id, parameters_thresholds: '{"tries": "1"}'}
+
+])

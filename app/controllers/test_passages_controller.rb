@@ -11,11 +11,20 @@ class TestPassagesController < ApplicationController
     if @test_passage.current_question
       render :show
     else
+      @test_passage.set_final_status
+      
+      service = RewardService.new(@test_passage)
+
+      badges = service.call
+
+      flash_options = { notice: t('.badges_created') } if badges
       redirect_to result_test_passage_path(@test_passage)
     end
   end
 
-  def result; end
+  def result
+    @badges = current_user.badges.select{|b| UserBadge.where(test_passage_id: @test_passage.id).pluck('badge_id').include?(b.id)}
+  end
 
   private
 

@@ -144,6 +144,28 @@ ru:
       create:
         gist_created: "%{gist_link} успешно создан"
         gist_failed: "Gist с замечаниями не был создан, попробуйте создать позже"
+    badges:
+      index:
+        header: "Все награды"
+        title: "Название"
+        image: "Изображение"
+        description: "Описание"
+        new_badge: "Новая награда"
+      badge: 
+        edit_badge: "Изменить"
+      form: 
+        title: "Название"
+        image: "Изображение"
+        description: "Описание"
+        submit: "Сохранить"
+      new:
+        header: "Новая награда"
+        badges: "Все награды"
+      edit:
+        header: "Изменить награду"
+        badges: "Все награды"
+      update:
+        success_update: "Награда успешно обновлена"
 
   test_passages:
     gist_description: "Вопрос теста %{test_title}"
@@ -159,7 +181,11 @@ ru:
       successfully: "УСПЕШНО"
       unsuccessfully: "НЕУСПЕШНО"
       right_count: "Вопросов с правильными ответами:"
-
+  
+  badges:
+    index:
+      header: "Доступные награды"
+      
   shared:
     nav:
       welcome: "Добро пожаловать, Гуру %{name}"
@@ -181,5 +207,9 @@ ru:
   feedbacks:
     new:
       header: "Отправьте отзыв администратору"
+
+  users:
+    rewards:
+      header: "Твои награды"
 
   publish_error: "Нельзя опубликовать тест без вопросов"

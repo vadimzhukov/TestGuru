@@ -1,18 +1,26 @@
-<nav class='navbar navbar-light px-3' >
+<nav class='navbar navbar-light px-5' >
   <%= image_tag("guru_squared.jpg", :alt => "guru_logo", size: "60x60") %>
-  <%= link_to "TestGuru", tests_path, class: "navbar navbar-brand " %>
+  <%= link_to t(".RU"), {:lang => :ru}, class: "navbar-text" %> | 
+  <%= link_to t(".EN"), {:lang => :en}, class: "navbar-text"%>
+  <%= link_to "Tests to pass", tests_path, class: "navbar navbar-brand " %>
   <% if current_user&.admin? %>
     <div class="navbar-text">
       <%= link_to t(".edit_tests"), admin_tests_path %>
     </div>
     <div class="navbar-text">
+      <%= link_to "Edit badges", admin_badges_path %>
+    </div>
+    <div class="navbar-text">
       <%= link_to "Gists", admin_gists_path %>
+    </div>
+  <% else %>
+    <div class="navbar-text">
+      <%= link_to "Badges", badges_path %>
     </div>
   <%end%>
   <div class="navbar-text">
-    <%= link_to t(".RU"), {:lang => :ru} %> | 
-    <%= link_to t(".EN"), {:lang => :en}%> | 
     <% if user_signed_in? %>
+      <%= link_to "My badges", rewards_user_path(current_user) %>
       <%= t('.welcome', name: current_user.name) %> |
       <%= link_to t(".log_out"), destroy_user_session_path, method: :delete, data: {confirm: t('.logout_confirmation')} %>
     <% elsif request.path == '/users/login' %>
