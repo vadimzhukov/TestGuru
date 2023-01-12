@@ -13,7 +13,7 @@
         <%= link_to t('.gist_link'), admin_gists_path(test_passage: @test_passage.id), method: :post%>
       </p>
       <p>
-        <%= form.submit t('.submit'), class: "btn btn-primary" %>
+        <%= form.submit t('.submit'), class: "btn btn-primary", id:"submit-answer" %>
       </p>
     <% end %>
     <p>

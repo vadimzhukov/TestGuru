@@ -1,7 +1,6 @@
 
 document.addEventListener('turbolinks:load',  function() {
   let secondsRemaining = document.getElementById("timer_tag").dataset.timer;
-  console.log(secondsRemaining);
 
     const interval = setInterval(() => {
       document.getElementById("timer").innerHTML = secondsRemaining;
@@ -9,6 +8,8 @@ document.addEventListener('turbolinks:load',  function() {
 
       if (secondsRemaining < 0) {
         clearInterval(interval);
+        const submitButton = document.getElementById("submit-answer");
+        submitButton.click();
       }
     }, 1000);
 
