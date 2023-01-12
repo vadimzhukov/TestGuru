@@ -19,12 +19,14 @@
     <p>
       <%= t('.question') %> <%= @test_passage.question_index || "1"%> / <%= @test_passage.test.questions.count %>
     </p>
-    <p><%= t('.progress') %></p>
+    <p class="text-center"><%= t('.progress') %></p>
     <div class="progress">
       <% progress_prc = ((@test_passage.question_index || 1).to_f / @test_passage.test.questions.count) * 100 %>
       <%= content_tag :div, nil, class: "progress-bar bg-warning", style: "width: #{progress_prc}%" %>
     </div>
     <div id="timer_tag" data-timer="<%= @test_passage.test.timer %>"></div>
-    <span> Timer: </span><span id="timer"></span><span> seconds remaining</span>
+    <p class="text-center">
+      <span> Timer: </span><strong id="timer"></strong><span> seconds remaining</span>
+    </p>
   </div>
 </div>
