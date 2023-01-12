@@ -181,6 +181,7 @@ ru:
       successfully: "УСПЕШНО"
       unsuccessfully: "НЕУСПЕШНО"
       right_count: "Вопросов с правильными ответами:"
+      time_is_out: "Тест не пройден за установленное время"
   
   badges:
     index:

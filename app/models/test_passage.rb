@@ -26,7 +26,11 @@ class TestPassage < ApplicationRecord
   end
 
   def successful?
-    correct_answers_part >= SUCCESS_THRESHOLD
+    correct_answers_part >= SUCCESS_THRESHOLD 
+  end
+
+  def expired?
+      Time.now - self.test.timer > self.created_at if self.test.timer
   end
 
   private

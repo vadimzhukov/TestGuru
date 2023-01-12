@@ -34,9 +34,9 @@ categories = Category.create([
                              ])
 
 tests = Test.create([
-                      { title: 'Star Wars', level: 3, category: categories[0], author: user1 },
-                      { title: 'Short test', level: 0, category: categories[4], author: user1 },
-                      { title: 'Short test2', level: 0, category: categories[3], author: user1 }
+                      { title: 'Star Wars', level: 3, category: categories[0], author: user1, timer: 300 },
+                      { title: 'Short test', level: 0, category: categories[4], author: user1, timer: 3 },
+                      { title: 'Short test2', level: 0, category: categories[3], author: user1, timer: 4 }
                     ])
 
 questions = Question.create([
@@ -158,7 +158,7 @@ answers = Answer.create([
                            { body: 'Неправильный ответ', correct: 0, question: questions[16] }
 
                         ])
-                        
+
 tests[1].update_attribute(:published, true)
 tests[2].update_attribute(:published, true)
 

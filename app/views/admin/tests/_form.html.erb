@@ -12,6 +12,10 @@
             <%= form.label :category_id %>
             <%= form.collection_select :category_id, Category.order(:title), :id, :title, prompt: true %>
           </div>
+          <div>
+            <%= form.label :timer, t(".timer_in_seconds") %>
+            <%= form.number_field :timer, step: 1, min: 0 %>
+          </div>
           <div class="form-check">
             <%= form.label :publish, class: "form-check-label" do%>
               <%= form.check_box :published, id: :publish, class: "form-check-input" %>

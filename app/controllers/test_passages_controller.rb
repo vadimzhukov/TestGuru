@@ -8,17 +8,17 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept!(params[:answer_ids])
 
-    if @test_passage.current_question
-      render :show
-    else
+    if !@test_passage.current_question || @test_question.expired?
       @test_passage.set_final_status
       
       service = RewardService.new(@test_passage)
-
       badges = service.call
 
       flash_options = { notice: t('.badges_created') } if badges
+
       redirect_to result_test_passage_path(@test_passage)
+    else
+      render :show
     end
   end
 

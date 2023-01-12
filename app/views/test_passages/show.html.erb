@@ -13,16 +13,20 @@
         <%= link_to t('.gist_link'), admin_gists_path(test_passage: @test_passage.id), method: :post%>
       </p>
       <p>
-        <%= form.submit t('.submit'), class: "btn btn-primary" %>
+        <%= form.submit t('.submit'), class: "btn btn-primary", id:"submit-answer" %>
       </p>
     <% end %>
     <p>
       <%= t('.question') %> <%= @test_passage.question_index || "1"%> / <%= @test_passage.test.questions.count %>
     </p>
-    <p><%= t('.progress') %></p>
+    <p class="text-center"><%= t('.progress') %></p>
     <div class="progress">
       <% progress_prc = ((@test_passage.question_index || 1).to_f / @test_passage.test.questions.count) * 100 %>
       <%= content_tag :div, nil, class: "progress-bar bg-warning", style: "width: #{progress_prc}%" %>
     </div>
+    <div id="timer_tag" data-timer="<%= @test_passage.test.timer %>"></div>
+    <p class="text-center">
+      <span> Timer: </span><strong id="timer"></strong><span> seconds remaining</span>
+    </p>
   </div>
 </div>

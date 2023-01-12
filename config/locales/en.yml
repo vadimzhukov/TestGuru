@@ -215,6 +215,7 @@ en:
       successfully: "SUCCESSFULLY"
       unsuccessfully: "UNSUCCESSFULLY"
       right_count: "Right answers count:"
+      time_is_out: "Test was timed out"
 
   badges:
     index:
